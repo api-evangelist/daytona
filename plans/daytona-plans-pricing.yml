@@ -1,0 +1,59 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Daytona
+providerId: daytona
+created: '2026-05-22'
+modified: '2026-05-22'
+tags:
+- Sandboxes
+- Secure Execution
+- AI Agents
+- Coding Agents
+- Code Interpreter
+- Snapshots
+- Multi-Region
+- HIPAA
+- SOC 2
+- GDPR
+- Python
+- TypeScript
+- Open Source
+- LSP
+description: Machine-readable plans scaffold for the Daytona API surface. Conforms to the API Commons Plans schema. Tier limits
+  and prices are scaffold defaults; replace with provider-published values.
+plans:
+- id: daytona-free
+  name: Free
+  type: freemium
+  description: Free entry tier for the Daytona API surface. Intended for evaluation, prototyping, and low-volume integrations.
+    Real limits and pricing must be reconciled with the provider's published plan documentation.
+  entries:
+  - label: API Requests
+    description: Monthly API request quota across all included endpoints
+    name: api_requests
+    type: quota
+    metric: requests
+    limit: 1000
+    timeFrame: month
+    geo: global
+    domains:
+    - https://app.daytona.io/api
+    unit: 1
+    price: '0.00'
+    userMultiplied: false
+  - label: Rate Limit
+    description: Maximum requests per minute on the free tier
+    name: rate_limit
+    type: rate
+    metric: requests_per_minute
+    limit: 10
+    timeFrame: minute
+    geo: global
+    domains:
+    - https://app.daytona.io/api
+    unit: 1
+    price: '0.00'
+references:
+- name: Daytona API Documentation
+  url: https://raw.githubusercontent.com/api-evangelist/daytona/refs/heads/main/apis.yml
