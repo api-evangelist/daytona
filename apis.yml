@@ -61,15 +61,15 @@ apis:
         url: https://www.daytona.io/docs/en/api-reference
       - type: GettingStarted
         url: https://www.daytona.io/docs/en/getting-started
-      - type: SignUp
+      - type: Signup
         url: https://app.daytona.io/
       - type: OpenAPI
         url: https://app.daytona.io/api/docs/openapi.json
       - type: OpenAPI
         url: https://app.daytona.io/api/docs/toolbox-openapi.json
-      - type: SDK
+      - type: SDKs
         url: https://pypi.org/project/daytona/
-      - type: SDK
+      - type: SDKs
         url: https://www.npmjs.com/package/@daytona/sdk
       - type: GitHubRepository
         url: https://github.com/daytonaio/daytona
@@ -137,7 +137,7 @@ common:
     url: https://www.daytona.io/pricing
   - type: Customers
     url: https://www.daytona.io/customers
-  - type: SignUp
+  - type: Signup
     url: https://app.daytona.io/
   - type: TermsOfService
     url: https://www.daytona.io/terms
