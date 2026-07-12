@@ -123,6 +123,12 @@ apis:
       - type: API Key
         description: API keys generated from the Daytona dashboard or the Daytona API; configured via SDK, env vars (`DAYTONA_API_KEY`), or .env file.
 common:
+  - type: TrustCenter
+    url: security/daytona-trust-center.yml
+  - type: DomainSecurity
+    url: security/daytona-domain-security.yml
+  - type: Authentication
+    url: authentication/daytona-authentication.yml
   - type: Website
     url: https://www.daytona.io
   - type: Documentation

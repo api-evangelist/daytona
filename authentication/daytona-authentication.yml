@@ -1,0 +1,20 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/daytona-openapi.json
+summary:
+  types:
+  - http
+  - openIdConnect
+schemes:
+- name: bearer
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: API Key access
+  sources:
+  - openapi/daytona-openapi.json
+- name: oauth2
+  type: openIdConnect
+  openIdConnectUrl: http://localhost:3000/.well-known/openid-configuration
+  sources:
+  - openapi/daytona-openapi.json
