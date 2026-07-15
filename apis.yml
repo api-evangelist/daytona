@@ -123,6 +123,8 @@ apis:
       - type: API Key
         description: API keys generated from the Daytona dashboard or the Daytona API; configured via SDK, env vars (`DAYTONA_API_KEY`), or .env file.
 common:
+  - type: AgenticAccess
+    url: agentic-access/daytona-agentic-access.yml
   - type: TrustCenter
     url: security/daytona-trust-center.yml
   - type: DomainSecurity
