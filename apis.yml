@@ -13,9 +13,22 @@ description: >-
   is pay-as-you-go and per-second across vCPU, memory, GPU, and storage with a
   $200 free credit.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/daytona.png
 tags:
   - Sandboxes
   - Secure Execution
@@ -36,92 +49,500 @@ created: '2026-05-23'
 modified: '2026-05-23'
 specificationVersion: '0.20'
 apis:
-  - aid: daytona:sandbox-api
-    name: Daytona Sandbox API
-    description: >-
-      The Daytona Sandbox API creates and manages isolated cloud sandboxes
-      with process execution, filesystem operations, Git integration, and a
-      Language Server Protocol toolbox. SDKs and the REST API let agents
-      provision per-task environments, stream stdout/stderr, snapshot state,
-      and share volumes.
-    humanURL: https://www.daytona.io/docs
-    baseURL: https://app.daytona.io/api
-    tags:
-      - Sandboxes
-      - Process
-      - Filesystem
-      - Git
-      - LSP
-      - Snapshots
-      - Volumes
-    properties:
-      - type: Documentation
-        url: https://www.daytona.io/docs
-      - type: APIReference
-        url: https://www.daytona.io/docs/en/api-reference
-      - type: GettingStarted
-        url: https://www.daytona.io/docs/en/getting-started
-      - type: Signup
-        url: https://app.daytona.io/
-      - type: OpenAPI
-        url: https://app.daytona.io/api/docs/openapi.json
-      - type: OpenAPI
-        url: https://app.daytona.io/api/docs/toolbox-openapi.json
-      - type: SDKs
-        url: https://pypi.org/project/daytona/
-      - type: SDKs
-        url: https://www.npmjs.com/package/@daytona/sdk
-      - type: GitHubRepository
-        url: https://github.com/daytonaio/daytona
-      - type: Pricing
-        url: https://www.daytona.io/pricing
-    features:
-      - name: Fast Sandbox Creation
-        description: Sub-90ms sandbox provisioning with no cold starts.
-      - name: Process Execution
-        description: Run code and OS commands with real-time output streaming.
-      - name: Filesystem Operations
-        description: Full CRUD on files with permission controls inside the sandbox.
-      - name: Git Integration
-        description: Native git operations and credential handling for cloning, committing, and pushing.
-      - name: Language Server Protocol
-        description: Multi-language completion, hover, and diagnostics through the Toolbox API.
-      - name: Snapshots
-        description: Save and restore sandbox state for resumable agent workflows.
-      - name: Shared Volumes
-        description: Mount shared storage across isolated sandboxes.
-      - name: Multi-Region Deployment
-        description: Run sandboxes in US, EU, and Asia regions to control data locality.
-      - name: SSH and VS Code Access
-        description: Browser-based VS Code and SSH access into running sandboxes.
-      - name: Compliance
-        description: HIPAA, SOC 2, and GDPR posture for regulated workloads.
-    useCases:
-      - name: AI Code Interpreters
-        description: Execute LLM-generated Python or TypeScript safely behind chat or copilot UX.
-      - name: Coding Agents
-        description: Give autonomous coding agents a per-task workspace with git and editor tooling.
-      - name: AI Evaluations
-        description: Spin up fresh sandboxes for each eval run to keep state clean.
-      - name: Computer Use Automation
-        description: Pair with vision or control models to drive sandboxed desktops.
-      - name: Reinforcement Learning
-        description: Provide reproducible environments for tool-use RL.
-      - name: Data Analysis
-        description: Let agents load datasets and run analysis in isolation.
-    integrations:
-      - name: OpenAI
-      - name: Anthropic
-      - name: LangChain
-      - name: LlamaIndex
-      - name: CrewAI
-      - name: Vercel AI SDK
-      - name: AutoGen
-      - name: GitHub
-      - name: VS Code
-    authentication:
-      - type: API Key
-        description: API keys generated from the Daytona dashboard or the Daytona API; configured via SDK, env vars (`DAYTONA_API_KEY`), or .env file.
+- aid: daytona:daytona-admin-api
+  name: Daytona admin API
+  description: The admin API from Daytona — 15 operation(s) for admin.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - admin
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-admin-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-api-keys-api
+  name: Daytona api-keys API
+  description: The api-keys API from Daytona — 4 operation(s) for api-keys.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - api-keys
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-api-keys-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-audit-api
+  name: Daytona audit API
+  description: The audit API from Daytona — 1 operation(s) for audit.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - audit
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-audit-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-config-api
+  name: Daytona config API
+  description: The config API from Daytona — 1 operation(s) for config.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - config
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-config-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-docker-registry-api
+  name: Daytona docker-registry API
+  description: The docker-registry API from Daytona — 3 operation(s) for docker-registry.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - docker-registry
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-docker-registry-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-health-api
+  name: Daytona Health API
+  description: The Health API from Daytona — 2 operation(s) for health.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-health-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-jobs-api
+  name: Daytona jobs API
+  description: The jobs API from Daytona — 4 operation(s) for jobs.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-object-storage-api
+  name: Daytona object-storage API
+  description: The object-storage API from Daytona — 1 operation(s) for object-storage.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - object-storage
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-object-storage-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-organizations-api
+  name: Daytona organizations API
+  description: The organizations API from Daytona — 30 operation(s) for organizations.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-preview-api
+  name: Daytona preview API
+  description: The preview API from Daytona — 4 operation(s) for preview.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - preview
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-preview-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-regions-api
+  name: Daytona regions API
+  description: The regions API from Daytona — 1 operation(s) for regions.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - regions
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-regions-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-runners-api
+  name: Daytona runners API
+  description: The runners API from Daytona — 9 operation(s) for runners.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - runners
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-runners-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-sandbox-api
+  name: Daytona sandbox API
+  description: The sandbox API from Daytona — 37 operation(s) for sandbox.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - sandbox
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-sandbox-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-snapshots-api
+  name: Daytona snapshots API
+  description: The snapshots API from Daytona — 6 operation(s) for snapshots.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - snapshots
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-snapshots-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-toolbox-api
+  name: Daytona toolbox API
+  description: The toolbox API from Daytona — 61 operation(s) for toolbox.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - toolbox
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-toolbox-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-users-api
+  name: Daytona users API
+  description: The users API from Daytona — 5 operation(s) for users.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - users
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-users-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-volumes-api
+  name: Daytona volumes API
+  description: The volumes API from Daytona — 3 operation(s) for volumes.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - volumes
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-volumes-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-webhooks-api
+  name: Daytona webhooks API
+  description: The webhooks API from Daytona — 3 operation(s) for webhooks.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
+- aid: daytona:daytona-workspace-api
+  name: Daytona workspace API
+  description: The workspace API from Daytona — 12 operation(s) for workspace.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - workspace
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-workspace-api-openapi.yml
+  - type: Documentation
+    url: https://www.daytona.io/docs
+  - type: APIReference
+    url: https://www.daytona.io/docs/en/api-reference
+  - type: GettingStarted
+    url: https://www.daytona.io/docs/en/getting-started
+  - type: Signup
+    url: https://app.daytona.io/
+  - type: SDKs
+    url: https://pypi.org/project/daytona/
+  - type: SDKs
+    url: https://www.npmjs.com/package/@daytona/sdk
+  - type: GitHubRepository
+    url: https://github.com/daytonaio/daytona
+  - type: Pricing
+    url: https://www.daytona.io/pricing
 common:
   - type: AgenticAccess
     url: agentic-access/daytona-agentic-access.yml
