@@ -544,6 +544,10 @@ apis:
   - type: Pricing
     url: https://www.daytona.io/pricing
 common:
+  - type: IssueTracker
+    url: https://github.com/daytonaio/daytona/issues
+  - type: Releases
+    url: https://github.com/daytonaio/daytona/releases
   - type: AgenticAccess
     url: agentic-access/daytona-agentic-access.yml
   - type: TrustCenter
