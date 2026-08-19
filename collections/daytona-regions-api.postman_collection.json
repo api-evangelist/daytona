@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "df81e91f-f95b-4f5f-b730-99c38a8ec3d8",
+      "name": "regions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "590423e1-0335-4bd8-bb83-5b344348fdc4",
+          "name": "List all shared regions",
+          "request": {
+            "name": "List all shared regions",
+            "description": {},
+            "url": {
+              "path": [
+                "shared-regions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6ef3a967-7525-459e-9f6a-571062c035aa",
+              "name": "List of all shared regions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shared-regions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"123456789012\",\n    \"name\": \"us-east-1\",\n    \"regionType\": \"shared\",\n    \"createdAt\": \"2023-01-01T00:00:00.000Z\",\n    \"updatedAt\": \"2023-01-01T00:00:00.000Z\",\n    \"organizationId\": \"123e4567-e89b-12d3-a456-426614174000\",\n    \"proxyUrl\": \"https://proxy.example.com\",\n    \"sshGatewayUrl\": \"http://ssh-gateway.example.com\",\n    \"snapshotManagerUrl\": \"http://snapshot-manager.example.com\"\n  },\n  {\n    \"id\": \"123456789012\",\n    \"name\": \"us-east-1\",\n    \"regionType\": \"shared\",\n    \"createdAt\": \"2023-01-01T00:00:00.000Z\",\n    \"updatedAt\": \"2023-01-01T00:00:00.000Z\",\n    \"organizationId\": \"123e4567-e89b-12d3-a456-426614174000\",\n    \"proxyUrl\": \"https://proxy.example.com\",\n    \"sshGatewayUrl\": \"http://ssh-gateway.example.com\",\n    \"snapshotManagerUrl\": \"http://snapshot-manager.example.com\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1ef40eb0-da0a-4173-bd33-01e2c73c1000",
+    "name": "Daytona admin regions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Daytona AI platform API Docs\n\nContact Support:\n Name: Daytona Platforms Inc.\n Email: support@daytona.com",
+      "type": "text/plain"
+    }
+  }
+}

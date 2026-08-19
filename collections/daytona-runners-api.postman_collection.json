@@ -1,0 +1,1183 @@
+{
+  "item": [
+    {
+      "id": "9ed9bc0e-fcc9-438e-8f30-8ea316c583ca",
+      "name": "runners",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "68af74b0-dd37-43f1-bd14-ff607fb3996f",
+          "name": "Create runner",
+          "request": {
+            "name": "Create runner",
+            "description": {},
+            "url": {
+              "path": [
+                "runners"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"regionId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "12e78c0a-d60c-4117-83af-af2311d0e000",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"regionId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"tags\": [\n    \"gpu\",\n    \"us-east\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"runner123\",\n  \"apiKey\": \"dtn_1234567890\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed003e71-245b-49b8-9211-d1b62e6f4682",
+          "name": "List all runners",
+          "request": {
+            "name": "List all runners",
+            "description": {},
+            "url": {
+              "path": [
+                "runners"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "regionId",
+                  "value": "<string>",
+                  "description": "Filter runners by region ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c075668b-3811-4a6e-b6a1-201da51ac1cd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "regionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"runner123\",\n    \"cpu\": 8,\n    \"memory\": 16,\n    \"disk\": 100,\n    \"class\": \"small\",\n    \"region\": \"us\",\n    \"name\": \"runner1\",\n    \"state\": \"initializing\",\n    \"unschedulable\": false,\n    \"tags\": [\n      \"gpu\",\n      \"us-east\"\n    ],\n    \"createdAt\": \"2023-10-01T12:00:00Z\",\n    \"updatedAt\": \"2023-10-01T12:00:00Z\",\n    \"version\": \"0\",\n    \"apiVersion\": \"0\",\n    \"runnerClass\": \"container\",\n    \"domain\": \"runner1.example.com\",\n    \"apiUrl\": \"https://api.runner1.example.com\",\n    \"proxyUrl\": \"https://proxy.runner1.example.com\",\n    \"gpu\": 1,\n    \"gpuType\": \"string\",\n    \"currentCpuUsagePercentage\": 45.6,\n    \"currentMemoryUsagePercentage\": 68.2,\n    \"currentDiskUsagePercentage\": 33.8,\n    \"currentAllocatedCpu\": 4000,\n    \"currentAllocatedMemoryGiB\": 8000,\n    \"currentAllocatedDiskGiB\": 50000,\n    \"currentSnapshotCount\": 12,\n    \"currentStartedSandboxes\": 5,\n    \"availabilityScore\": 85,\n    \"lastChecked\": \"2024-10-01T12:00:00Z\",\n    \"appVersion\": \"v0.0.0-dev\"\n  },\n  {\n    \"id\": \"runner123\",\n    \"cpu\": 8,\n    \"memory\": 16,\n    \"disk\": 100,\n    \"class\": \"small\",\n    \"region\": \"us\",\n    \"name\": \"runner1\",\n    \"state\": \"initializing\",\n    \"unschedulable\": false,\n    \"tags\": [\n      \"gpu\",\n      \"us-east\"\n    ],\n    \"createdAt\": \"2023-10-01T12:00:00Z\",\n    \"updatedAt\": \"2023-10-01T12:00:00Z\",\n    \"version\": \"0\",\n    \"apiVersion\": \"0\",\n    \"runnerClass\": \"container\",\n    \"domain\": \"runner1.example.com\",\n    \"apiUrl\": \"https://api.runner1.example.com\",\n    \"proxyUrl\": \"https://proxy.runner1.example.com\",\n    \"gpu\": 1,\n    \"gpuType\": \"string\",\n    \"currentCpuUsagePercentage\": 45.6,\n    \"currentMemoryUsagePercentage\": 68.2,\n    \"currentDiskUsagePercentage\": 33.8,\n    \"currentAllocatedCpu\": 4000,\n    \"currentAllocatedMemoryGiB\": 8000,\n    \"currentAllocatedDiskGiB\": 50000,\n    \"currentSnapshotCount\": 12,\n    \"currentStartedSandboxes\": 5,\n    \"availabilityScore\": 85,\n    \"lastChecked\": \"2024-10-01T12:00:00Z\",\n    \"appVersion\": \"v0.0.0-dev\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e8a0d36-9d4d-42fb-b965-f80355c03679",
+          "name": "Get info for authenticated runner",
+          "request": {
+            "name": "Get info for authenticated runner",
+            "description": {},
+            "url": {
+              "path": [
+                "runners",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4268680e-eeb7-4d6c-902b-b0068ebc43b9",
+              "name": "Runner info",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runners",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"runner123\",\n  \"cpu\": 8,\n  \"memory\": 16,\n  \"disk\": 100,\n  \"class\": \"small\",\n  \"region\": \"us\",\n  \"name\": \"runner1\",\n  \"state\": \"initializing\",\n  \"unschedulable\": false,\n  \"tags\": [\n    \"gpu\",\n    \"us-east\"\n  ],\n  \"createdAt\": \"2023-10-01T12:00:00Z\",\n  \"updatedAt\": \"2023-10-01T12:00:00Z\",\n  \"version\": \"0\",\n  \"apiVersion\": \"0\",\n  \"runnerClass\": \"container\",\n  \"apiKey\": \"dtn_1234567890\",\n  \"domain\": \"runner1.example.com\",\n  \"apiUrl\": \"https://api.runner1.example.com\",\n  \"proxyUrl\": \"https://proxy.runner1.example.com\",\n  \"gpu\": 1,\n  \"gpuType\": \"string\",\n  \"currentCpuUsagePercentage\": 45.6,\n  \"currentMemoryUsagePercentage\": 68.2,\n  \"currentDiskUsagePercentage\": 33.8,\n  \"currentAllocatedCpu\": 4000,\n  \"currentAllocatedMemoryGiB\": 8000,\n  \"currentAllocatedDiskGiB\": 50000,\n  \"currentSnapshotCount\": 12,\n  \"currentStartedSandboxes\": 5,\n  \"availabilityScore\": 85,\n  \"lastChecked\": \"2024-10-01T12:00:00Z\",\n  \"appVersion\": \"v0.0.0-dev\",\n  \"regionType\": \"shared\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb2ff99f-e111-49d4-b8d7-7bcee95ee6a5",
+          "name": "Get runner by sandbox ID",
+          "request": {
+            "name": "Get runner by sandbox ID",
+            "description": {},
+            "url": {
+              "path": [
+                "runners",
+                "by-sandbox",
+                ":sandboxId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sandboxId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "12801584-0c8e-40a3-b124-6165d9af3701",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runners",
+                    "by-sandbox",
+                    ":sandboxId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sandboxId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"runner123\",\n  \"cpu\": 8,\n  \"memory\": 16,\n  \"disk\": 100,\n  \"class\": \"small\",\n  \"region\": \"us\",\n  \"name\": \"runner1\",\n  \"state\": \"initializing\",\n  \"unschedulable\": false,\n  \"tags\": [\n    \"gpu\",\n    \"us-east\"\n  ],\n  \"createdAt\": \"2023-10-01T12:00:00Z\",\n  \"updatedAt\": \"2023-10-01T12:00:00Z\",\n  \"version\": \"0\",\n  \"apiVersion\": \"0\",\n  \"runnerClass\": \"container\",\n  \"apiKey\": \"dtn_1234567890\",\n  \"domain\": \"runner1.example.com\",\n  \"apiUrl\": \"https://api.runner1.example.com\",\n  \"proxyUrl\": \"https://proxy.runner1.example.com\",\n  \"gpu\": 1,\n  \"gpuType\": \"string\",\n  \"currentCpuUsagePercentage\": 45.6,\n  \"currentMemoryUsagePercentage\": 68.2,\n  \"currentDiskUsagePercentage\": 33.8,\n  \"currentAllocatedCpu\": 4000,\n  \"currentAllocatedMemoryGiB\": 8000,\n  \"currentAllocatedDiskGiB\": 50000,\n  \"currentSnapshotCount\": 12,\n  \"currentStartedSandboxes\": 5,\n  \"availabilityScore\": 85,\n  \"lastChecked\": \"2024-10-01T12:00:00Z\",\n  \"appVersion\": \"v0.0.0-dev\",\n  \"regionType\": \"shared\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c68ba213-2049-4e1f-b118-1777844c4216",
+          "name": "Get runners by snapshot ref",
+          "request": {
+            "name": "Get runners by snapshot ref",
+            "description": {},
+            "url": {
+              "path": [
+                "runners",
+                "by-snapshot-ref"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ref",
+                  "value": "<string>",
+                  "description": "(Required) Snapshot ref"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5f8aa7ee-7248-4f68-83ba-2b48be2e870b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runners",
+                    "by-snapshot-ref"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ref",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"runnerSnapshotId\": \"123e4567-e89b-12d3-a456-426614174000\",\n    \"runnerId\": \"123e4567-e89b-12d3-a456-426614174000\",\n    \"runnerDomain\": \"runner.example.com\"\n  },\n  {\n    \"runnerSnapshotId\": \"123e4567-e89b-12d3-a456-426614174000\",\n    \"runnerId\": \"123e4567-e89b-12d3-a456-426614174000\",\n    \"runnerDomain\": \"runner.example.com\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05b984e1-caf2-4632-9205-b40c640389aa",
+          "name": "Get runner by ID",
+          "request": {
+            "name": "Get runner by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "runners",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Runner ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "73e1eb32-c1d0-4a60-a7f0-fb21f11445ce",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runners",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Runner ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"runner123\",\n  \"cpu\": 8,\n  \"memory\": 16,\n  \"disk\": 100,\n  \"class\": \"small\",\n  \"region\": \"us\",\n  \"name\": \"runner1\",\n  \"state\": \"initializing\",\n  \"unschedulable\": false,\n  \"tags\": [\n    \"gpu\",\n    \"us-east\"\n  ],\n  \"createdAt\": \"2023-10-01T12:00:00Z\",\n  \"updatedAt\": \"2023-10-01T12:00:00Z\",\n  \"version\": \"0\",\n  \"apiVersion\": \"0\",\n  \"runnerClass\": \"container\",\n  \"domain\": \"runner1.example.com\",\n  \"apiUrl\": \"https://api.runner1.example.com\",\n  \"proxyUrl\": \"https://proxy.runner1.example.com\",\n  \"gpu\": 1,\n  \"gpuType\": \"string\",\n  \"currentCpuUsagePercentage\": 45.6,\n  \"currentMemoryUsagePercentage\": 68.2,\n  \"currentDiskUsagePercentage\": 33.8,\n  \"currentAllocatedCpu\": 4000,\n  \"currentAllocatedMemoryGiB\": 8000,\n  \"currentAllocatedDiskGiB\": 50000,\n  \"currentSnapshotCount\": 12,\n  \"currentStartedSandboxes\": 5,\n  \"availabilityScore\": 85,\n  \"lastChecked\": \"2024-10-01T12:00:00Z\",\n  \"appVersion\": \"v0.0.0-dev\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbb05688-1234-45fd-8b7e-23f7203f7a34",
+          "name": "Delete runner",
+          "request": {
+            "name": "Delete runner",
+            "description": {},
+            "url": {
+              "path": [
+                "runners",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Runner ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3deca1c7-5458-4293-afc5-439c5304cc65",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runners",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Runner ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3328704d-980f-44b8-b605-0e1a447bffee",
+          "name": "Get runner by ID",
+          "request": {
+            "name": "Get runner by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "runners",
+                ":id",
+                "full"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Runner ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "564a3516-0b57-405e-b832-dc340e35bf40",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runners",
+                    ":id",
+                    "full"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Runner ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"runner123\",\n  \"cpu\": 8,\n  \"memory\": 16,\n  \"disk\": 100,\n  \"class\": \"small\",\n  \"region\": \"us\",\n  \"name\": \"runner1\",\n  \"state\": \"initializing\",\n  \"unschedulable\": false,\n  \"tags\": [\n    \"gpu\",\n    \"us-east\"\n  ],\n  \"createdAt\": \"2023-10-01T12:00:00Z\",\n  \"updatedAt\": \"2023-10-01T12:00:00Z\",\n  \"version\": \"0\",\n  \"apiVersion\": \"0\",\n  \"runnerClass\": \"container\",\n  \"apiKey\": \"dtn_1234567890\",\n  \"domain\": \"runner1.example.com\",\n  \"apiUrl\": \"https://api.runner1.example.com\",\n  \"proxyUrl\": \"https://proxy.runner1.example.com\",\n  \"gpu\": 1,\n  \"gpuType\": \"string\",\n  \"currentCpuUsagePercentage\": 45.6,\n  \"currentMemoryUsagePercentage\": 68.2,\n  \"currentDiskUsagePercentage\": 33.8,\n  \"currentAllocatedCpu\": 4000,\n  \"currentAllocatedMemoryGiB\": 8000,\n  \"currentAllocatedDiskGiB\": 50000,\n  \"currentSnapshotCount\": 12,\n  \"currentStartedSandboxes\": 5,\n  \"availabilityScore\": 85,\n  \"lastChecked\": \"2024-10-01T12:00:00Z\",\n  \"appVersion\": \"v0.0.0-dev\",\n  \"regionType\": \"shared\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2cdb31f-807b-48b9-a740-f9eac7d29318",
+          "name": "Update runner scheduling status",
+          "request": {
+            "name": "Update runner scheduling status",
+            "description": {},
+            "url": {
+              "path": [
+                "runners",
+                ":id",
+                "scheduling"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Runner ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "75b47324-1dd4-4038-9679-eb4eed06cb46",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runners",
+                    ":id",
+                    "scheduling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Runner ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"runner123\",\n  \"cpu\": 8,\n  \"memory\": 16,\n  \"disk\": 100,\n  \"class\": \"small\",\n  \"region\": \"us\",\n  \"name\": \"runner1\",\n  \"state\": \"initializing\",\n  \"unschedulable\": false,\n  \"tags\": [\n    \"gpu\",\n    \"us-east\"\n  ],\n  \"createdAt\": \"2023-10-01T12:00:00Z\",\n  \"updatedAt\": \"2023-10-01T12:00:00Z\",\n  \"version\": \"0\",\n  \"apiVersion\": \"0\",\n  \"runnerClass\": \"container\",\n  \"domain\": \"runner1.example.com\",\n  \"apiUrl\": \"https://api.runner1.example.com\",\n  \"proxyUrl\": \"https://proxy.runner1.example.com\",\n  \"gpu\": 1,\n  \"gpuType\": \"string\",\n  \"currentCpuUsagePercentage\": 45.6,\n  \"currentMemoryUsagePercentage\": 68.2,\n  \"currentDiskUsagePercentage\": 33.8,\n  \"currentAllocatedCpu\": 4000,\n  \"currentAllocatedMemoryGiB\": 8000,\n  \"currentAllocatedDiskGiB\": 50000,\n  \"currentSnapshotCount\": 12,\n  \"currentStartedSandboxes\": 5,\n  \"availabilityScore\": 85,\n  \"lastChecked\": \"2024-10-01T12:00:00Z\",\n  \"appVersion\": \"v0.0.0-dev\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1de07c8-0463-4658-abc0-265341d66cd2",
+          "name": "Update runner draining status",
+          "request": {
+            "name": "Update runner draining status",
+            "description": {},
+            "url": {
+              "path": [
+                "runners",
+                ":id",
+                "draining"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Runner ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "97edf9a6-67cb-42b4-9188-d5fcd0c8fe65",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runners",
+                    ":id",
+                    "draining"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Runner ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"runner123\",\n  \"cpu\": 8,\n  \"memory\": 16,\n  \"disk\": 100,\n  \"class\": \"small\",\n  \"region\": \"us\",\n  \"name\": \"runner1\",\n  \"state\": \"initializing\",\n  \"unschedulable\": false,\n  \"tags\": [\n    \"gpu\",\n    \"us-east\"\n  ],\n  \"createdAt\": \"2023-10-01T12:00:00Z\",\n  \"updatedAt\": \"2023-10-01T12:00:00Z\",\n  \"version\": \"0\",\n  \"apiVersion\": \"0\",\n  \"runnerClass\": \"container\",\n  \"domain\": \"runner1.example.com\",\n  \"apiUrl\": \"https://api.runner1.example.com\",\n  \"proxyUrl\": \"https://proxy.runner1.example.com\",\n  \"gpu\": 1,\n  \"gpuType\": \"string\",\n  \"currentCpuUsagePercentage\": 45.6,\n  \"currentMemoryUsagePercentage\": 68.2,\n  \"currentDiskUsagePercentage\": 33.8,\n  \"currentAllocatedCpu\": 4000,\n  \"currentAllocatedMemoryGiB\": 8000,\n  \"currentAllocatedDiskGiB\": 50000,\n  \"currentSnapshotCount\": 12,\n  \"currentStartedSandboxes\": 5,\n  \"availabilityScore\": 85,\n  \"lastChecked\": \"2024-10-01T12:00:00Z\",\n  \"appVersion\": \"v0.0.0-dev\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67057c8f-58f5-40d9-a8a1-5aafb2b6e19b",
+          "name": "Runner healthcheck",
+          "request": {
+            "name": "Runner healthcheck",
+            "description": {
+              "content": "Endpoint for version 2 runners to send healthcheck and metrics. Updates lastChecked timestamp and runner metrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "runners",
+                "healthcheck"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appVersion\": \"<string>\",\n  \"metrics\": {\n    \"currentCpuLoadAverage\": \"<number>\",\n    \"currentCpuUsagePercentage\": \"<number>\",\n    \"currentMemoryUsagePercentage\": \"<number>\",\n    \"currentDiskUsagePercentage\": \"<number>\",\n    \"currentAllocatedCpu\": \"<number>\",\n    \"currentAllocatedMemoryGiB\": \"<number>\",\n    \"currentAllocatedDiskGiB\": \"<number>\",\n    \"currentSnapshotCount\": \"<number>\",\n    \"currentStartedSandboxes\": \"<number>\",\n    \"cpu\": \"<number>\",\n    \"memoryGiB\": \"<number>\",\n    \"diskGiB\": \"<number>\"\n  },\n  \"serviceHealth\": [\n    {\n      \"serviceName\": \"<string>\",\n      \"healthy\": \"<boolean>\",\n      \"errorReason\": \"<string>\"\n    },\n    {\n      \"serviceName\": \"<string>\",\n      \"healthy\": \"<boolean>\",\n      \"errorReason\": \"<string>\"\n    }\n  ],\n  \"domain\": \"<string>\",\n  \"proxyUrl\": \"<string>\",\n  \"apiUrl\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "38b9d2d6-7fa6-44a4-8655-ac4b0fa86d02",
+              "name": "Healthcheck received",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runners",
+                    "healthcheck"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appVersion\": \"v0.0.0-dev\",\n  \"metrics\": {\n    \"currentCpuLoadAverage\": 0.98,\n    \"currentCpuUsagePercentage\": 45.5,\n    \"currentMemoryUsagePercentage\": 60.2,\n    \"currentDiskUsagePercentage\": 35.8,\n    \"currentAllocatedCpu\": 8,\n    \"currentAllocatedMemoryGiB\": 16,\n    \"currentAllocatedDiskGiB\": 100,\n    \"currentSnapshotCount\": 5,\n    \"currentStartedSandboxes\": 10,\n    \"cpu\": 8,\n    \"memoryGiB\": 16,\n    \"diskGiB\": 100\n  },\n  \"serviceHealth\": [\n    {\n      \"serviceName\": \"runner\",\n      \"healthy\": false,\n      \"errorReason\": \"Cannot connect to the runner\"\n    },\n    {\n      \"serviceName\": \"runner\",\n      \"healthy\": false,\n      \"errorReason\": \"Cannot connect to the runner\"\n    }\n  ],\n  \"domain\": \"runner-123.daytona.example.com\",\n  \"proxyUrl\": \"http://proxy.daytona.example.com:8080\",\n  \"apiUrl\": \"http://api.daytona.example.com:8080\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "51ead662-5054-48cb-822d-6d33fba5cb30",
+    "name": "Daytona admin runners API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Daytona AI platform API Docs\n\nContact Support:\n Name: Daytona Platforms Inc.\n Email: support@daytona.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,495 @@
+{
+  "item": [
+    {
+      "id": "fbf46b76-d7c7-42b7-a456-fbc606a993c9",
+      "name": "jobs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a7bbca8-7b1f-4f14-a14d-3a0f318fc685",
+          "name": "List jobs for the runner",
+          "request": {
+            "name": "List jobs for the runner",
+            "description": {
+              "content": "Returns a paginated list of jobs for the runner, optionally filtered by status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number of the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of jobs to return (default: 100, max: 500)"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter jobs by status"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<number>",
+                  "description": "Number of jobs to skip for pagination (default: 0)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "20c69085-ec1d-4a88-bf63-79fd061e8e20",
+              "name": "List of jobs for the runner",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "status",
+                      "value": "COMPLETED"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"job123\",\n      \"type\": \"CREATE_SANDBOX\",\n      \"status\": \"PENDING\",\n      \"resourceType\": \"SANDBOX\",\n      \"resourceId\": \"sandbox123\",\n      \"createdAt\": \"2024-10-01T12:00:00Z\",\n      \"payload\": \"string\",\n      \"traceContext\": {\n        \"traceparent\": \"00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01\"\n      },\n      \"errorMessage\": \"Failed to create sandbox\",\n      \"updatedAt\": \"2024-10-01T12:00:00Z\"\n    },\n    {\n      \"id\": \"job123\",\n      \"type\": \"CREATE_SANDBOX\",\n      \"status\": \"PENDING\",\n      \"resourceType\": \"SANDBOX\",\n      \"resourceId\": \"sandbox123\",\n      \"createdAt\": \"2024-10-01T12:00:00Z\",\n      \"payload\": \"string\",\n      \"traceContext\": {\n        \"traceparent\": \"00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01\"\n      },\n      \"errorMessage\": \"Failed to create sandbox\",\n      \"updatedAt\": \"2024-10-01T12:00:00Z\"\n    }\n  ],\n  \"total\": 8908.092362983478,\n  \"page\": 6825.314851241443,\n  \"totalPages\": 8871.956440740674\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "129f9175-2806-4489-8e5a-96ca2324f4dc",
+          "name": "Long poll for jobs",
+          "request": {
+            "name": "Long poll for jobs",
+            "description": {
+              "content": "Long poll endpoint for runners to fetch pending jobs. Returns immediately if jobs are available, otherwise waits up to timeout seconds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "poll"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timeout",
+                  "value": "<number>",
+                  "description": "Timeout in seconds for long polling (default: 30, max: 60)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<number>",
+                  "description": "Maximum number of jobs to return (default: 10, max: 100)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "754a12ed-80c0-4478-bc01-6dacf94f3378",
+              "name": "List of jobs for the runner",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "poll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timeout",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"jobs\": [\n    {\n      \"id\": \"job123\",\n      \"type\": \"CREATE_SANDBOX\",\n      \"status\": \"PENDING\",\n      \"resourceType\": \"SANDBOX\",\n      \"resourceId\": \"sandbox123\",\n      \"createdAt\": \"2024-10-01T12:00:00Z\",\n      \"payload\": \"string\",\n      \"traceContext\": {\n        \"traceparent\": \"00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01\"\n      },\n      \"errorMessage\": \"Failed to create sandbox\",\n      \"updatedAt\": \"2024-10-01T12:00:00Z\"\n    },\n    {\n      \"id\": \"job123\",\n      \"type\": \"CREATE_SANDBOX\",\n      \"status\": \"PENDING\",\n      \"resourceType\": \"SANDBOX\",\n      \"resourceId\": \"sandbox123\",\n      \"createdAt\": \"2024-10-01T12:00:00Z\",\n      \"payload\": \"string\",\n      \"traceContext\": {\n        \"traceparent\": \"00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01\"\n      },\n      \"errorMessage\": \"Failed to create sandbox\",\n      \"updatedAt\": \"2024-10-01T12:00:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e08d4a09-4645-40d7-b516-5b5a561c3ca9",
+          "name": "Get job details",
+          "request": {
+            "name": "Get job details",
+            "description": {},
+            "url": {
+              "path": [
+                "jobs",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) ID of the job"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a70e38a3-3612-48b4-a734-acfc8b855796",
+              "name": "Job details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) ID of the job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"job123\",\n  \"type\": \"CREATE_SANDBOX\",\n  \"status\": \"PENDING\",\n  \"resourceType\": \"SANDBOX\",\n  \"resourceId\": \"sandbox123\",\n  \"createdAt\": \"2024-10-01T12:00:00Z\",\n  \"payload\": \"string\",\n  \"traceContext\": {\n    \"traceparent\": \"00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01\"\n  },\n  \"errorMessage\": \"Failed to create sandbox\",\n  \"updatedAt\": \"2024-10-01T12:00:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1aea3533-faed-4f53-9b6c-d07b8da0af71",
+          "name": "Update job status",
+          "request": {
+            "name": "Update job status",
+            "description": {},
+            "url": {
+              "path": [
+                "jobs",
+                ":jobId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) ID of the job"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"errorMessage\": \"<string>\",\n  \"resultMetadata\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "82728339-bc84-4a1b-b0ff-509ece3a70a4",
+              "name": "Job status updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":jobId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) ID of the job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"IN_PROGRESS\",\n  \"errorMessage\": \"Failed to create sandbox\",\n  \"resultMetadata\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"job123\",\n  \"type\": \"CREATE_SANDBOX\",\n  \"status\": \"PENDING\",\n  \"resourceType\": \"SANDBOX\",\n  \"resourceId\": \"sandbox123\",\n  \"createdAt\": \"2024-10-01T12:00:00Z\",\n  \"payload\": \"string\",\n  \"traceContext\": {\n    \"traceparent\": \"00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01\"\n  },\n  \"errorMessage\": \"Failed to create sandbox\",\n  \"updatedAt\": \"2024-10-01T12:00:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f648ee5c-f374-4b16-969d-08a01efee8fc",
+    "name": "Daytona admin jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Daytona AI platform API Docs\n\nContact Support:\n Name: Daytona Platforms Inc.\n Email: support@daytona.com",
+      "type": "text/plain"
+    }
+  }
+}

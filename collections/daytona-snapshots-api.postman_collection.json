@@ -1,0 +1,1188 @@
+{
+  "item": [
+    {
+      "id": "952aea50-530a-41b0-89ac-ff65f0bf3725",
+      "name": "snapshots",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "54b4ec21-0c74-40fa-9fab-18aa69e3bf4e",
+          "name": "Create a new snapshot",
+          "request": {
+            "name": "Create a new snapshot",
+            "description": {},
+            "url": {
+              "path": [
+                "snapshots"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"imageName\": \"<string>\",\n  \"entrypoint\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cpu\": \"<integer>\",\n  \"gpu\": \"<integer>\",\n  \"memory\": \"<integer>\",\n  \"disk\": \"<integer>\",\n  \"buildInfo\": {\n    \"dockerfileContent\": \"<string>\",\n    \"contextHashes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"regionId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fb6dcaed-02d7-42e3-8c9b-717529c54dab",
+              "name": "The snapshot has been successfully created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"ubuntu-4vcpu-8ram-100gb\",\n  \"imageName\": \"ubuntu:22.04\",\n  \"entrypoint\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cpu\": 1,\n  \"gpu\": 0,\n  \"memory\": 1,\n  \"disk\": 3,\n  \"buildInfo\": {\n    \"dockerfileContent\": \"FROM node:14\\nWORKDIR /app\\nCOPY . .\\nRUN npm install\\nCMD [\\\"npm\\\", \\\"start\\\"]\",\n    \"contextHashes\": [\n      \"hash1\",\n      \"hash2\"\n    ]\n  },\n  \"regionId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"general\": true,\n  \"name\": \"string\",\n  \"state\": \"building\",\n  \"size\": 1926.4205236680566,\n  \"entrypoint\": [\n    \"string\",\n    \"string\"\n  ],\n  \"cpu\": 6919.646610323377,\n  \"gpu\": 4238.894376298388,\n  \"mem\": 9949.67281655654,\n  \"disk\": 4151.436928489227,\n  \"errorReason\": \"string\",\n  \"createdAt\": \"1992-02-05T00:29:45.578Z\",\n  \"updatedAt\": \"1951-01-06T19:14:28.037Z\",\n  \"lastUsedAt\": \"1993-07-11T22:18:53.513Z\",\n  \"organizationId\": \"string\",\n  \"imageName\": \"string\",\n  \"buildInfo\": {\n    \"createdAt\": \"1998-10-13T05:29:46.899Z\",\n    \"updatedAt\": \"2025-04-04T23:32:39.743Z\",\n    \"snapshotRef\": \"daytonaio/sandbox:latest\",\n    \"dockerfileContent\": \"FROM node:14\\nWORKDIR /app\\nCOPY . .\\nRUN npm install\\nCMD [\\\"npm\\\", \\\"start\\\"]\",\n    \"contextHashes\": [\n      \"hash1\",\n      \"hash2\"\n    ]\n  },\n  \"regionIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"initialRunnerId\": \"runner123\",\n  \"ref\": \"daytonaio/sandbox:latest\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c92c20f-eaf4-490b-918e-6cc015ff0c16",
+              "name": "Bad request - Snapshots with tag \":latest\" are not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"ubuntu-4vcpu-8ram-100gb\",\n  \"imageName\": \"ubuntu:22.04\",\n  \"entrypoint\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cpu\": 1,\n  \"gpu\": 0,\n  \"memory\": 1,\n  \"disk\": 3,\n  \"buildInfo\": {\n    \"dockerfileContent\": \"FROM node:14\\nWORKDIR /app\\nCOPY . .\\nRUN npm install\\nCMD [\\\"npm\\\", \\\"start\\\"]\",\n    \"contextHashes\": [\n      \"hash1\",\n      \"hash2\"\n    ]\n  },\n  \"regionId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de2eec2f-1bf1-4564-b9c5-fb52dadc0db9",
+          "name": "List all snapshots",
+          "request": {
+            "name": "List all snapshots",
+            "description": {},
+            "url": {
+              "path": [
+                "snapshots"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number of the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Number of results per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Filter by partial name match"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "lastUsedAt",
+                  "description": "Field to sort by"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Direction to sort by"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "78aad753-63db-477b-a982-c27cde3ed556",
+              "name": "Paginated list of all snapshots",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "name",
+                      "value": "abc123"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "lastUsedAt"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"general\": true,\n      \"name\": \"string\",\n      \"state\": \"removing\",\n      \"size\": 6944.425800558559,\n      \"entrypoint\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cpu\": 594.1540694608905,\n      \"gpu\": 6925.127035122748,\n      \"mem\": 1350.742095805255,\n      \"disk\": 856.1666479822383,\n      \"errorReason\": \"string\",\n      \"createdAt\": \"2011-06-09T04:23:53.665Z\",\n      \"updatedAt\": \"2015-10-04T04:36:59.829Z\",\n      \"lastUsedAt\": \"2026-03-18T10:11:17.329Z\",\n      \"organizationId\": \"string\",\n      \"imageName\": \"string\",\n      \"buildInfo\": {\n        \"createdAt\": \"1968-03-06T22:47:53.921Z\",\n        \"updatedAt\": \"1955-03-10T20:39:43.615Z\",\n        \"snapshotRef\": \"daytonaio/sandbox:latest\",\n        \"dockerfileContent\": \"FROM node:14\\nWORKDIR /app\\nCOPY . .\\nRUN npm install\\nCMD [\\\"npm\\\", \\\"start\\\"]\",\n        \"contextHashes\": [\n          \"hash1\",\n          \"hash2\"\n        ]\n      },\n      \"regionIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"initialRunnerId\": \"runner123\",\n      \"ref\": \"daytonaio/sandbox:latest\"\n    },\n    {\n      \"id\": \"string\",\n      \"general\": false,\n      \"name\": \"string\",\n      \"state\": \"pulling\",\n      \"size\": 552.5986021778095,\n      \"entrypoint\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cpu\": 5267.76909198532,\n      \"gpu\": 2884.6234059595986,\n      \"mem\": 5125.4749777349725,\n      \"disk\": 7587.291537340124,\n      \"errorReason\": \"string\",\n      \"createdAt\": \"1964-08-15T19:50:54.124Z\",\n      \"updatedAt\": \"2003-06-22T15:07:03.662Z\",\n      \"lastUsedAt\": \"1966-11-20T18:06:01.816Z\",\n      \"organizationId\": \"string\",\n      \"imageName\": \"string\",\n      \"buildInfo\": {\n        \"createdAt\": \"1966-01-29T20:52:12.745Z\",\n        \"updatedAt\": \"1953-05-07T01:07:21.124Z\",\n        \"snapshotRef\": \"daytonaio/sandbox:latest\",\n        \"dockerfileContent\": \"FROM node:14\\nWORKDIR /app\\nCOPY . .\\nRUN npm install\\nCMD [\\\"npm\\\", \\\"start\\\"]\",\n        \"contextHashes\": [\n          \"hash1\",\n          \"hash2\"\n        ]\n      },\n      \"regionIds\": [\n        \"string\",\n        \"string\"\n      ],\n      \"initialRunnerId\": \"runner123\",\n      \"ref\": \"daytonaio/sandbox:latest\"\n    }\n  ],\n  \"total\": 9647.96206888982,\n  \"page\": 7253.9276996314375,\n  \"totalPages\": 3250.672161225625\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d43292a-d27a-4c26-bf73-b4d2ca7ac305",
+          "name": "Get snapshot by ID or name",
+          "request": {
+            "name": "Get snapshot by ID or name",
+            "description": {},
+            "url": {
+              "path": [
+                "snapshots",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Snapshot ID or name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fcf1abab-11c6-4073-9ddb-6dc3fca1cb1d",
+              "name": "The snapshot",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Snapshot ID or name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"general\": true,\n  \"name\": \"string\",\n  \"state\": \"building\",\n  \"size\": 1926.4205236680566,\n  \"entrypoint\": [\n    \"string\",\n    \"string\"\n  ],\n  \"cpu\": 6919.646610323377,\n  \"gpu\": 4238.894376298388,\n  \"mem\": 9949.67281655654,\n  \"disk\": 4151.436928489227,\n  \"errorReason\": \"string\",\n  \"createdAt\": \"1992-02-05T00:29:45.578Z\",\n  \"updatedAt\": \"1951-01-06T19:14:28.037Z\",\n  \"lastUsedAt\": \"1993-07-11T22:18:53.513Z\",\n  \"organizationId\": \"string\",\n  \"imageName\": \"string\",\n  \"buildInfo\": {\n    \"createdAt\": \"1998-10-13T05:29:46.899Z\",\n    \"updatedAt\": \"2025-04-04T23:32:39.743Z\",\n    \"snapshotRef\": \"daytonaio/sandbox:latest\",\n    \"dockerfileContent\": \"FROM node:14\\nWORKDIR /app\\nCOPY . .\\nRUN npm install\\nCMD [\\\"npm\\\", \\\"start\\\"]\",\n    \"contextHashes\": [\n      \"hash1\",\n      \"hash2\"\n    ]\n  },\n  \"regionIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"initialRunnerId\": \"runner123\",\n  \"ref\": \"daytonaio/sandbox:latest\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a1ccb98-841a-44a7-947f-52df2e6b87a1",
+              "name": "Snapshot not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Snapshot ID or name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd7f0e0a-6138-460e-9650-0ea46d861f31",
+          "name": "Delete snapshot",
+          "request": {
+            "name": "Delete snapshot",
+            "description": {},
+            "url": {
+              "path": [
+                "snapshots",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Snapshot ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d3972576-83c0-43fb-a105-48d50861e0a6",
+              "name": "Snapshot has been deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Snapshot ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5cab737-1fa5-4994-a55b-a9edfa4d0c01",
+          "name": "Get snapshot build logs",
+          "request": {
+            "name": "Get snapshot build logs",
+            "description": {
+              "content": "This endpoint is deprecated. Use `getSnapshotBuildLogsUrl` instead.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "snapshots",
+                ":id",
+                "build-logs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "follow",
+                  "value": "<boolean>",
+                  "description": "Whether to follow the logs stream"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Snapshot ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "05a1e5b8-2c2e-4912-b58b-fc93ec48d88b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots",
+                    ":id",
+                    "build-logs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "follow",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Snapshot ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3aefbf44-f702-4c34-8d86-1cb7d363cb99",
+          "name": "Get snapshot build logs URL",
+          "request": {
+            "name": "Get snapshot build logs URL",
+            "description": {},
+            "url": {
+              "path": [
+                "snapshots",
+                ":id",
+                "build-logs-url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Snapshot ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d61e6a74-b96d-4516-9ef7-3824ac6d3d72",
+              "name": "The snapshot build logs URL",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots",
+                    ":id",
+                    "build-logs-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Snapshot ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c3b24e6-f2fd-499c-92a2-3a373e9e5211",
+          "name": "Activate a snapshot",
+          "request": {
+            "name": "Activate a snapshot",
+            "description": {},
+            "url": {
+              "path": [
+                "snapshots",
+                ":id",
+                "activate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Snapshot ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6a5cd448-5360-4b36-8ad7-b88d316200ae",
+              "name": "The snapshot has been successfully activated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots",
+                    ":id",
+                    "activate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Snapshot ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"general\": true,\n  \"name\": \"string\",\n  \"state\": \"building\",\n  \"size\": 1926.4205236680566,\n  \"entrypoint\": [\n    \"string\",\n    \"string\"\n  ],\n  \"cpu\": 6919.646610323377,\n  \"gpu\": 4238.894376298388,\n  \"mem\": 9949.67281655654,\n  \"disk\": 4151.436928489227,\n  \"errorReason\": \"string\",\n  \"createdAt\": \"1992-02-05T00:29:45.578Z\",\n  \"updatedAt\": \"1951-01-06T19:14:28.037Z\",\n  \"lastUsedAt\": \"1993-07-11T22:18:53.513Z\",\n  \"organizationId\": \"string\",\n  \"imageName\": \"string\",\n  \"buildInfo\": {\n    \"createdAt\": \"1998-10-13T05:29:46.899Z\",\n    \"updatedAt\": \"2025-04-04T23:32:39.743Z\",\n    \"snapshotRef\": \"daytonaio/sandbox:latest\",\n    \"dockerfileContent\": \"FROM node:14\\nWORKDIR /app\\nCOPY . .\\nRUN npm install\\nCMD [\\\"npm\\\", \\\"start\\\"]\",\n    \"contextHashes\": [\n      \"hash1\",\n      \"hash2\"\n    ]\n  },\n  \"regionIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"initialRunnerId\": \"runner123\",\n  \"ref\": \"daytonaio/sandbox:latest\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b8fcf23-24af-45b7-9907-b43a5310f1d2",
+              "name": "Bad request - Snapshot is already active, not in inactive state, or has associated snapshot runners",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots",
+                    ":id",
+                    "activate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Snapshot ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9cbca108-371c-4816-9db7-e228b0daa6a4",
+              "name": "Snapshot not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots",
+                    ":id",
+                    "activate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Snapshot ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e191c149-909c-47ba-ae44-3fefb72ed21d",
+          "name": "Deactivate a snapshot",
+          "request": {
+            "name": "Deactivate a snapshot",
+            "description": {},
+            "url": {
+              "path": [
+                "snapshots",
+                ":id",
+                "deactivate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Snapshot ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b7f0203a-e33b-4f6d-a91b-8d4c8a2a741b",
+              "name": "The snapshot has been successfully deactivated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "snapshots",
+                    ":id",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Snapshot ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3a8bd2e1-91fb-49df-9541-d6fb6d54acad",
+    "name": "Daytona admin snapshots API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Daytona AI platform API Docs\n\nContact Support:\n Name: Daytona Platforms Inc.\n Email: support@daytona.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1699 @@
+{
+  "item": [
+    {
+      "id": "587a35b4-f329-4538-9e39-041d14aabbf9",
+      "name": "workspace",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db271403-ed66-4fa0-9ee0-137afec14a9e",
+          "name": "[DEPRECATED] List all workspaces",
+          "request": {
+            "name": "[DEPRECATED] List all workspaces",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "verbose",
+                  "value": "<boolean>",
+                  "description": "Include verbose output"
+                },
+                {
+                  "disabled": false,
+                  "key": "labels",
+                  "value": "<string>",
+                  "description": "JSON encoded labels to filter by"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3e1ae778-df56-427b-b772-aa9bc8b0bacd",
+              "name": "List of all workspacees",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "verbose",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "labels",
+                      "value": "{\"label1\": \"value1\", \"label2\": \"value2\"}"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"sandbox123\",\n    \"organizationId\": \"organization123\",\n    \"name\": \"MySandbox\",\n    \"user\": \"daytona\",\n    \"env\": {\n      \"NODE_ENV\": \"production\"\n    },\n    \"labels\": {\n      \"daytona.io/public\": \"true\"\n    },\n    \"public\": false,\n    \"networkBlockAll\": false,\n    \"target\": \"local\",\n    \"cpu\": 2,\n    \"gpu\": 0,\n    \"memory\": 4,\n    \"disk\": 10,\n    \"toolboxProxyUrl\": \"https://proxy.app.daytona.io/toolbox\",\n    \"snapshot\": \"daytonaio/sandbox:latest\",\n    \"networkAllowList\": \"192.168.1.0/16,10.0.0.0/24\",\n    \"state\": \"creating\",\n    \"desiredState\": \"destroyed\",\n    \"errorReason\": \"The sandbox is not running\",\n    \"recoverable\": true,\n    \"backupState\": \"None\",\n    \"backupCreatedAt\": \"2024-10-01T12:00:00Z\",\n    \"autoStopInterval\": 30,\n    \"autoArchiveInterval\": 10080,\n    \"autoDeleteInterval\": 30,\n    \"volumes\": [\n      {\n        \"volumeId\": \"volume123\",\n        \"mountPath\": \"/data\",\n        \"subpath\": \"users/alice\"\n      },\n      {\n        \"volumeId\": \"volume123\",\n        \"mountPath\": \"/data\",\n        \"subpath\": \"users/alice\"\n      }\n    ],\n    \"buildInfo\": {\n      \"createdAt\": \"1948-05-08T01:32:00.305Z\",\n      \"updatedAt\": \"1970-01-23T19:50:26.858Z\",\n      \"snapshotRef\": \"daytonaio/sandbox:latest\",\n      \"dockerfileContent\": \"FROM node:14\\nWORKDIR /app\\nCOPY . .\\nRUN npm install\\nCMD [\\\"npm\\\", \\\"start\\\"]\",\n      \"contextHashes\": [\n        \"hash1\",\n        \"hash2\"\n      ]\n    },\n    \"createdAt\": \"2024-10-01T12:00:00Z\",\n    \"updatedAt\": \"2024-10-01T12:00:00Z\",\n    \"lastActivityAt\": \"2024-10-01T12:00:00Z\",\n    \"class\": \"small\",\n    \"daemonVersion\": \"1.0.0\",\n    \"runnerId\": \"runner123\",\n    \"image\": \"daytonaio/workspace:latest\",\n    \"snapshotState\": \"None\",\n    \"snapshotCreatedAt\": \"2024-10-01T12:00:00Z\",\n    \"info\": {\n      \"created\": \"2023-10-01T12:00:00Z\",\n      \"name\": \"MySandbox\",\n      \"providerMetadata\": \"{\\\"key\\\": \\\"value\\\"}\"\n    }\n  },\n  {\n    \"id\": \"sandbox123\",\n    \"organizationId\": \"organization123\",\n    \"name\": \"MySandbox\",\n    \"user\": \"daytona\",\n    \"env\": {\n      \"NODE_ENV\": \"production\"\n    },\n    \"labels\": {\n      \"daytona.io/public\": \"true\"\n    },\n    \"public\": false,\n    \"networkBlockAll\": false,\n    \"target\": \"local\",\n    \"cpu\": 2,\n    \"gpu\": 0,\n    \"memory\": 4,\n    \"disk\": 10,\n    \"toolboxProxyUrl\": \"https://proxy.app.daytona.io/toolbox\",\n    \"snapshot\": \"daytonaio/sandbox:latest\",\n    \"networkAllowList\": \"192.168.1.0/16,10.0.0.0/24\",\n    \"state\": \"creating\",\n    \"desiredState\": \"destroyed\",\n    \"errorReason\": \"The sandbox is not running\",\n    \"recoverable\": true,\n    \"backupState\": \"None\",\n    \"backupCreatedAt\": \"2024-10-01T12:00:00Z\",\n    \"autoStopInterval\": 30,\n    \"autoArchiveInterval\": 10080,\n    \"autoDeleteInterval\": 30,\n    \"volumes\": [\n      {\n        \"volumeId\": \"volume123\",\n        \"mountPath\": \"/data\",\n        \"subpath\": \"users/alice\"\n      },\n      {\n        \"volumeId\": \"volume123\",\n        \"mountPath\": \"/data\",\n        \"subpath\": \"users/alice\"\n      }\n    ],\n    \"buildInfo\": {\n      \"createdAt\": \"1984-03-08T02:35:11.071Z\",\n      \"updatedAt\": \"2006-11-25T16:56:23.326Z\",\n      \"snapshotRef\": \"daytonaio/sandbox:latest\",\n      \"dockerfileContent\": \"FROM node:14\\nWORKDIR /app\\nCOPY . .\\nRUN npm install\\nCMD [\\\"npm\\\", \\\"start\\\"]\",\n      \"contextHashes\": [\n        \"hash1\",\n        \"hash2\"\n      ]\n    },\n    \"createdAt\": \"2024-10-01T12:00:00Z\",\n    \"updatedAt\": \"2024-10-01T12:00:00Z\",\n    \"lastActivityAt\": \"2024-10-01T12:00:00Z\",\n    \"class\": \"small\",\n    \"daemonVersion\": \"1.0.0\",\n    \"runnerId\": \"runner123\",\n    \"image\": \"daytonaio/workspace:latest\",\n    \"snapshotState\": \"None\",\n    \"snapshotCreatedAt\": \"2024-10-01T12:00:00Z\",\n    \"info\": {\n      \"created\": \"2023-10-01T12:00:00Z\",\n      \"name\": \"MySandbox\",\n      \"providerMetadata\": \"{\\\"key\\\": \\\"value\\\"}\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2848afd-e74a-4d7c-bcd2-01f24536bf7c",
+          "name": "[DEPRECATED] Create a new workspace",
+          "request": {
+            "name": "[DEPRECATED] Create a new workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": \"<string>\",\n  \"user\": \"<string>\",\n  \"env\": {\n    \"key_0\": \"<string>\"\n  },\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\",\n    \"key_4\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"class\": \"<string>\",\n  \"target\": \"<string>\",\n  \"cpu\": \"<integer>\",\n  \"gpu\": \"<integer>\",\n  \"memory\": \"<integer>\",\n  \"disk\": \"<integer>\",\n  \"autoStopInterval\": \"<integer>\",\n  \"autoArchiveInterval\": \"<integer>\",\n  \"volumes\": [\n    {\n      \"volumeId\": \"<string>\",\n      \"mountPath\": \"<string>\",\n      \"subpath\": \"<string>\"\n    },\n    {\n      \"volumeId\": \"<string>\",\n      \"mountPath\": \"<string>\",\n      \"subpath\": \"<string>\"\n    }\n  ],\n  \"buildInfo\": {\n    \"dockerfileContent\": \"<string>\",\n    \"contextHashes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c9f9a8ac-d79b-4e5c-a799-d8b27b8bffcb",
+              "name": "The workspace has been successfully created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image\": \"daytonaio/workspace:latest\",\n  \"user\": \"daytona\",\n  \"env\": {\n    \"NODE_ENV\": \"production\"\n  },\n  \"labels\": {\n    \"daytona.io/public\": \"true\"\n  },\n  \"public\": false,\n  \"class\": \"small\",\n  \"target\": \"eu\",\n  \"cpu\": 2,\n  \"gpu\": 1,\n  \"memory\": 1,\n  \"disk\": 3,\n  \"autoStopInterval\": 30,\n  \"autoArchiveInterval\": 10080,\n  \"volumes\": [\n    {\n      \"volumeId\": \"volume123\",\n      \"mountPath\": \"/data\",\n      \"subpath\": \"users/alice\"\n    },\n    {\n      \"volumeId\": \"volume123\",\n      \"mountPath\": \"/data\",\n      \"subpath\": \"users/alice\"\n    }\n  ],\n  \"buildInfo\": {\n    \"dockerfileContent\": \"FROM node:14\\nWORKDIR /app\\nCOPY . .\\nRUN npm install\\nCMD [\\\"npm\\\", \\\"start\\\"]\",\n    \"contextHashes\": [\n      \"hash1\",\n      \"hash2\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"sandbox123\",\n  \"organizationId\": \"organization123\",\n  \"name\": \"MySandbox\",\n  \"user\": \"daytona\",\n  \"env\": {\n    \"NODE_ENV\": \"production\"\n  },\n  \"labels\": {\n    \"daytona.io/public\": \"true\"\n  },\n  \"public\": false,\n  \"networkBlockAll\": false,\n  \"target\": \"local\",\n  \"cpu\": 2,\n  \"gpu\": 0,\n  \"memory\": 4,\n  \"disk\": 10,\n  \"toolboxProxyUrl\": \"https://proxy.app.daytona.io/toolbox\",\n  \"snapshot\": \"daytonaio/sandbox:latest\",\n  \"networkAllowList\": \"192.168.1.0/16,10.0.0.0/24\",\n  \"state\": \"creating\",\n  \"desiredState\": \"destroyed\",\n  \"errorReason\": \"The sandbox is not running\",\n  \"recoverable\": true,\n  \"backupState\": \"None\",\n  \"backupCreatedAt\": \"2024-10-01T12:00:00Z\",\n  \"autoStopInterval\": 30,\n  \"autoArchiveInterval\": 10080,\n  \"autoDeleteInterval\": 30,\n  \"volumes\": [\n    {\n      \"volumeId\": \"volume123\",\n      \"mountPath\": \"/data\",\n      \"subpath\": \"users/alice\"\n    },\n    {\n      \"volumeId\": \"volume123\",\n      \"mountPath\": \"/data\",\n      \"subpath\": \"users/alice\"\n    }\n  ],\n  \"buildInfo\": {\n    \"createdAt\": \"1988-07-13T19:20:36.724Z\",\n    \"updatedAt\": \"1985-02-11T22:52:41.572Z\",\n    \"snapshotRef\": \"daytonaio/sandbox:latest\",\n    \"dockerfileContent\": \"FROM node:14\\nWORKDIR /app\\nCOPY . .\\nRUN npm install\\nCMD [\\\"npm\\\", \\\"start\\\"]\",\n    \"contextHashes\": [\n      \"hash1\",\n      \"hash2\"\n    ]\n  },\n  \"createdAt\": \"2024-10-01T12:00:00Z\",\n  \"updatedAt\": \"2024-10-01T12:00:00Z\",\n  \"lastActivityAt\": \"2024-10-01T12:00:00Z\",\n  \"class\": \"small\",\n  \"daemonVersion\": \"1.0.0\",\n  \"runnerId\": \"runner123\",\n  \"image\": \"daytonaio/workspace:latest\",\n  \"snapshotState\": \"None\",\n  \"snapshotCreatedAt\": \"2024-10-01T12:00:00Z\",\n  \"info\": {\n    \"created\": \"2023-10-01T12:00:00Z\",\n    \"name\": \"MySandbox\",\n    \"providerMetadata\": \"{\\\"key\\\": \\\"value\\\"}\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "efc3b6b8-4ec4-4585-8409-fcb883813c35",
+          "name": "[DEPRECATED] Get workspace details",
+          "request": {
+            "name": "[DEPRECATED] Get workspace details",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace",
+                ":workspaceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "verbose",
+                  "value": "<boolean>",
+                  "description": "Include verbose output"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) ID of the workspace"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "960eb563-1ce4-4a90-89a5-a3ebcee34ced",
+              "name": "Workspace details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "verbose",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) ID of the workspace"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"sandbox123\",\n  \"organizationId\": \"organization123\",\n  \"name\": \"MySandbox\",\n  \"user\": \"daytona\",\n  \"env\": {\n    \"NODE_ENV\": \"production\"\n  },\n  \"labels\": {\n    \"daytona.io/public\": \"true\"\n  },\n  \"public\": false,\n  \"networkBlockAll\": false,\n  \"target\": \"local\",\n  \"cpu\": 2,\n  \"gpu\": 0,\n  \"memory\": 4,\n  \"disk\": 10,\n  \"toolboxProxyUrl\": \"https://proxy.app.daytona.io/toolbox\",\n  \"snapshot\": \"daytonaio/sandbox:latest\",\n  \"networkAllowList\": \"192.168.1.0/16,10.0.0.0/24\",\n  \"state\": \"creating\",\n  \"desiredState\": \"destroyed\",\n  \"errorReason\": \"The sandbox is not running\",\n  \"recoverable\": true,\n  \"backupState\": \"None\",\n  \"backupCreatedAt\": \"2024-10-01T12:00:00Z\",\n  \"autoStopInterval\": 30,\n  \"autoArchiveInterval\": 10080,\n  \"autoDeleteInterval\": 30,\n  \"volumes\": [\n    {\n      \"volumeId\": \"volume123\",\n      \"mountPath\": \"/data\",\n      \"subpath\": \"users/alice\"\n    },\n    {\n      \"volumeId\": \"volume123\",\n      \"mountPath\": \"/data\",\n      \"subpath\": \"users/alice\"\n    }\n  ],\n  \"buildInfo\": {\n    \"createdAt\": \"1988-07-13T19:20:36.724Z\",\n    \"updatedAt\": \"1985-02-11T22:52:41.572Z\",\n    \"snapshotRef\": \"daytonaio/sandbox:latest\",\n    \"dockerfileContent\": \"FROM node:14\\nWORKDIR /app\\nCOPY . .\\nRUN npm install\\nCMD [\\\"npm\\\", \\\"start\\\"]\",\n    \"contextHashes\": [\n      \"hash1\",\n      \"hash2\"\n    ]\n  },\n  \"createdAt\": \"2024-10-01T12:00:00Z\",\n  \"updatedAt\": \"2024-10-01T12:00:00Z\",\n  \"lastActivityAt\": \"2024-10-01T12:00:00Z\",\n  \"class\": \"small\",\n  \"daemonVersion\": \"1.0.0\",\n  \"runnerId\": \"runner123\",\n  \"image\": \"daytonaio/workspace:latest\",\n  \"snapshotState\": \"None\",\n  \"snapshotCreatedAt\": \"2024-10-01T12:00:00Z\",\n  \"info\": {\n    \"created\": \"2023-10-01T12:00:00Z\",\n    \"name\": \"MySandbox\",\n    \"providerMetadata\": \"{\\\"key\\\": \\\"value\\\"}\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "acb4bf9f-36cd-420f-b049-bf1fd7b4f738",
+          "name": "[DEPRECATED] Delete workspace",
+          "request": {
+            "name": "[DEPRECATED] Delete workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace",
+                ":workspaceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "force",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) ID of the workspace"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aa35bad7-4161-4aa6-9da8-1a166a836db7",
+              "name": "Workspace has been deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) ID of the workspace"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05ed729c-2995-45d1-878d-168b24c7965c",
+          "name": "[DEPRECATED] Start workspace",
+          "request": {
+            "name": "[DEPRECATED] Start workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace",
+                ":workspaceId",
+                "start"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) ID of the workspace"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "44d759da-fbb9-419c-8e62-54127273f22a",
+              "name": "Workspace has been started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace",
+                    ":workspaceId",
+                    "start"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) ID of the workspace"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec4d030e-648e-494c-ae75-38eed444fb13",
+          "name": "[DEPRECATED] Stop workspace",
+          "request": {
+            "name": "[DEPRECATED] Stop workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace",
+                ":workspaceId",
+                "stop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) ID of the workspace"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4c50e02b-b7c6-4361-8afb-fdefba222e6c",
+              "name": "Workspace has been stopped",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace",
+                    ":workspaceId",
+                    "stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) ID of the workspace"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4784a2e-2610-4cd3-8baf-42a953eabfc5",
+          "name": "[DEPRECATED] Replace workspace labels",
+          "request": {
+            "name": "[DEPRECATED] Replace workspace labels",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace",
+                ":workspaceId",
+                "labels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) ID of the workspace"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cd975664-5917-4b88-b3d3-58eb2342f289",
+              "name": "Labels have been successfully replaced",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace",
+                    ":workspaceId",
+                    "labels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) ID of the workspace"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"labels\": {\n    \"environment\": \"dev\",\n    \"team\": \"backend\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"labels\": {\n    \"environment\": \"dev\",\n    \"team\": \"backend\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "680d5213-7544-4ac2-94a5-a3c8ff7063f3",
+          "name": "[DEPRECATED] Create workspace backup",
+          "request": {
+            "name": "[DEPRECATED] Create workspace backup",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace",
+                ":workspaceId",
+                "backup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) ID of the workspace"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0b45ea92-732c-4d2a-bb48-41426136f8bc",
+              "name": "Workspace backup has been initiated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace",
+                    ":workspaceId",
+                    "backup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) ID of the workspace"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"sandbox123\",\n  \"organizationId\": \"organization123\",\n  \"name\": \"MySandbox\",\n  \"user\": \"daytona\",\n  \"env\": {\n    \"NODE_ENV\": \"production\"\n  },\n  \"labels\": {\n    \"daytona.io/public\": \"true\"\n  },\n  \"public\": false,\n  \"networkBlockAll\": false,\n  \"target\": \"local\",\n  \"cpu\": 2,\n  \"gpu\": 0,\n  \"memory\": 4,\n  \"disk\": 10,\n  \"toolboxProxyUrl\": \"https://proxy.app.daytona.io/toolbox\",\n  \"snapshot\": \"daytonaio/sandbox:latest\",\n  \"networkAllowList\": \"192.168.1.0/16,10.0.0.0/24\",\n  \"state\": \"creating\",\n  \"desiredState\": \"destroyed\",\n  \"errorReason\": \"The sandbox is not running\",\n  \"recoverable\": true,\n  \"backupState\": \"None\",\n  \"backupCreatedAt\": \"2024-10-01T12:00:00Z\",\n  \"autoStopInterval\": 30,\n  \"autoArchiveInterval\": 10080,\n  \"autoDeleteInterval\": 30,\n  \"volumes\": [\n    {\n      \"volumeId\": \"volume123\",\n      \"mountPath\": \"/data\",\n      \"subpath\": \"users/alice\"\n    },\n    {\n      \"volumeId\": \"volume123\",\n      \"mountPath\": \"/data\",\n      \"subpath\": \"users/alice\"\n    }\n  ],\n  \"buildInfo\": {\n    \"createdAt\": \"1988-07-13T19:20:36.724Z\",\n    \"updatedAt\": \"1985-02-11T22:52:41.572Z\",\n    \"snapshotRef\": \"daytonaio/sandbox:latest\",\n    \"dockerfileContent\": \"FROM node:14\\nWORKDIR /app\\nCOPY . .\\nRUN npm install\\nCMD [\\\"npm\\\", \\\"start\\\"]\",\n    \"contextHashes\": [\n      \"hash1\",\n      \"hash2\"\n    ]\n  },\n  \"createdAt\": \"2024-10-01T12:00:00Z\",\n  \"updatedAt\": \"2024-10-01T12:00:00Z\",\n  \"lastActivityAt\": \"2024-10-01T12:00:00Z\",\n  \"class\": \"small\",\n  \"daemonVersion\": \"1.0.0\",\n  \"runnerId\": \"runner123\",\n  \"image\": \"daytonaio/workspace:latest\",\n  \"snapshotState\": \"None\",\n  \"snapshotCreatedAt\": \"2024-10-01T12:00:00Z\",\n  \"info\": {\n    \"created\": \"2023-10-01T12:00:00Z\",\n    \"name\": \"MySandbox\",\n    \"providerMetadata\": \"{\\\"key\\\": \\\"value\\\"}\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0969b29c-8c46-400f-b298-b47c5cc31dd7",
+          "name": "[DEPRECATED] Update public status",
+          "request": {
+            "name": "[DEPRECATED] Update public status",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace",
+                ":workspaceId",
+                "public",
+                ":isPublic"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) ID of the workspace"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<boolean>",
+                  "key": "isPublic",
+                  "description": "(Required) Public status to set"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a73daffe-0fdd-4345-bbdf-f3e07879d050",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace",
+                    ":workspaceId",
+                    "public",
+                    ":isPublic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) ID of the workspace"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<boolean>",
+                      "key": "isPublic",
+                      "description": "(Required) Public status to set"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a0edcf0-9cfb-40ab-b18c-74859ae77a18",
+          "name": "[DEPRECATED] Set workspace auto-stop interval",
+          "request": {
+            "name": "[DEPRECATED] Set workspace auto-stop interval",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace",
+                ":workspaceId",
+                "autostop",
+                ":interval"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) ID of the workspace"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "interval",
+                  "description": "(Required) Auto-stop interval in minutes (0 to disable)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7bf81f14-02a1-4241-a658-f72a3a08725e",
+              "name": "Auto-stop interval has been set",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace",
+                    ":workspaceId",
+                    "autostop",
+                    ":interval"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) ID of the workspace"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "interval",
+                      "description": "(Required) Auto-stop interval in minutes (0 to disable)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "636d268a-edaf-4c54-a88c-8029d119eef2",
+          "name": "[DEPRECATED] Set workspace auto-archive interval",
+          "request": {
+            "name": "[DEPRECATED] Set workspace auto-archive interval",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace",
+                ":workspaceId",
+                "autoarchive",
+                ":interval"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) ID of the workspace"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "interval",
+                  "description": "(Required) Auto-archive interval in minutes (0 means the maximum interval will be used)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8d2b256c-4187-4ba1-b43d-b2f38b80991d",
+              "name": "Auto-archive interval has been set",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace",
+                    ":workspaceId",
+                    "autoarchive",
+                    ":interval"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) ID of the workspace"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "interval",
+                      "description": "(Required) Auto-archive interval in minutes (0 means the maximum interval will be used)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "024a34c1-3f0e-4960-be44-0fbe336e19d2",
+          "name": "[DEPRECATED] Archive workspace",
+          "request": {
+            "name": "[DEPRECATED] Archive workspace",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace",
+                ":workspaceId",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "27f450bd-9c7e-48c8-bed1-e14b08118082",
+              "name": "Workspace has been archived",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace",
+                    ":workspaceId",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63dbd8cb-aa1b-4c1b-b6e6-4a56d4667168",
+          "name": "[DEPRECATED] Get preview URL for a workspace port",
+          "request": {
+            "name": "[DEPRECATED] Get preview URL for a workspace port",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace",
+                ":workspaceId",
+                "ports",
+                ":port",
+                "preview-url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) ID of the workspace"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "port",
+                  "description": "(Required) Port number to get preview URL for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c9bc949d-c3c0-4a8e-b970-f92df706e75f",
+              "name": "Preview URL for the specified port",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace",
+                    ":workspaceId",
+                    "ports",
+                    ":port",
+                    "preview-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) ID of the workspace"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "port",
+                      "description": "(Required) Port number to get preview URL for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"https://123456-mysandbox.runner.com\",\n  \"token\": \"ul67qtv-jl6wb9z5o3eii-ljqt9qed6l\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce865a26-a500-4359-872b-6fb33d68f00f",
+          "name": "[DEPRECATED] Get build logs",
+          "request": {
+            "name": "[DEPRECATED] Get build logs",
+            "description": {},
+            "url": {
+              "path": [
+                "workspace",
+                ":workspaceId",
+                "build-logs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "follow",
+                  "value": "<boolean>",
+                  "description": "Whether to follow the logs stream"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) ID of the workspace"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e071d77d-297c-4b65-acf0-ad1e758cd806",
+              "name": "Build logs stream",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workspace",
+                    ":workspaceId",
+                    "build-logs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "follow",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) ID of the workspace"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "377c6718-0e90-41c4-9165-f91716798d91",
+    "name": "Daytona admin workspace API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Daytona AI platform API Docs\n\nContact Support:\n Name: Daytona Platforms Inc.\n Email: support@daytona.com",
+      "type": "text/plain"
+    }
+  }
+}

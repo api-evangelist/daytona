@@ -1,0 +1,129 @@
+{
+  "item": [
+    {
+      "id": "2398ef1c-863e-41f7-9c81-3fac2c1464fe",
+      "name": "object-storage",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "84561a85-54ba-40d5-8622-2ddac76b15e8",
+          "name": "Get temporary storage access for pushing objects",
+          "request": {
+            "name": "Get temporary storage access for pushing objects",
+            "description": {},
+            "url": {
+              "path": [
+                "object-storage",
+                "push-access"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Use with JWT to specify the organization ID",
+                "key": "X-Daytona-Organization-ID",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "25bbbda3-04b2-40e0-a59a-b7ddd54f7857",
+              "name": "Temporary storage access has been generated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object-storage",
+                    "push-access"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Use with JWT to specify the organization ID",
+                    "key": "X-Daytona-Organization-ID",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accessKey\": \"temp-user-123\",\n  \"secret\": \"abchbGciOiJIUzI1NiIs...\",\n  \"sessionToken\": \"eyJhbGciOiJIUzI1NiIs...\",\n  \"storageUrl\": \"storage.example.com\",\n  \"organizationId\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"bucket\": \"daytona\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7a818b94-2113-4280-a5b5-6a472e829a11",
+    "name": "Daytona admin object-storage API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Daytona AI platform API Docs\n\nContact Support:\n Name: Daytona Platforms Inc.\n Email: support@daytona.com",
+      "type": "text/plain"
+    }
+  }
+}

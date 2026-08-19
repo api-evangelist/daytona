@@ -1,0 +1,187 @@
+{
+  "item": [
+    {
+      "id": "b361a0c6-1d16-4388-84b4-b8f1b2ada3a5",
+      "name": "audit",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f7fab498-2988-4477-81bf-2a9ad5f1feb3",
+          "name": "Get audit logs for organization",
+          "request": {
+            "name": "Get audit logs for organization",
+            "description": {},
+            "url": {
+              "path": [
+                "audit",
+                "organizations",
+                ":organizationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number of the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Number of results per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "From date (ISO 8601 format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "To date (ISO 8601 format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextToken",
+                  "value": "<string>",
+                  "description": "Token for cursor-based pagination. When provided, takes precedence over page parameter."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationId",
+                  "description": "(Required) Organization ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3ff20062-7981-4095-a1bf-80628deca107",
+              "name": "Paginated list of organization audit logs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "audit",
+                    "organizations",
+                    ":organizationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationId",
+                      "description": "(Required) Organization ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"actorId\": \"string\",\n      \"actorEmail\": \"string\",\n      \"action\": \"string\",\n      \"createdAt\": \"2024-11-22T13:31:10.026Z\",\n      \"actorApiKeyPrefix\": \"string\",\n      \"actorApiKeySuffix\": \"string\",\n      \"organizationId\": \"string\",\n      \"targetType\": \"string\",\n      \"targetId\": \"string\",\n      \"statusCode\": 4310.398587182553,\n      \"errorMessage\": \"string\",\n      \"ipAddress\": \"string\",\n      \"userAgent\": \"string\",\n      \"source\": \"string\",\n      \"metadata\": {\n        \"key_0\": 9104,\n        \"key_1\": true\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"actorId\": \"string\",\n      \"actorEmail\": \"string\",\n      \"action\": \"string\",\n      \"createdAt\": \"1954-09-05T10:46:57.298Z\",\n      \"actorApiKeyPrefix\": \"string\",\n      \"actorApiKeySuffix\": \"string\",\n      \"organizationId\": \"string\",\n      \"targetType\": \"string\",\n      \"targetId\": \"string\",\n      \"statusCode\": 8657.216653870184,\n      \"errorMessage\": \"string\",\n      \"ipAddress\": \"string\",\n      \"userAgent\": \"string\",\n      \"source\": \"string\",\n      \"metadata\": {\n        \"key_0\": 9860\n      }\n    }\n  ],\n  \"total\": 8595.65199195567,\n  \"page\": 7720.007868439173,\n  \"totalPages\": 2664.709906737046,\n  \"nextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:3000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4daaf5fb-a2c4-46a4-a92b-5e8a2044e9d1",
+    "name": "Daytona admin audit API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Daytona AI platform API Docs\n\nContact Support:\n Name: Daytona Platforms Inc.\n Email: support@daytona.com",
+      "type": "text/plain"
+    }
+  }
+}
