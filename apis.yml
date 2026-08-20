@@ -42,6 +42,21 @@ tags:
   - GDPR
   - Python
   - TypeScript
+  - Open-Source
+  - LSP
+tags_raw:
+  - Sandboxes
+  - Secure Execution
+  - AI Agents
+  - Coding Agents
+  - Code Interpreter
+  - Snapshots
+  - Multi-Region
+  - HIPAA
+  - SOC 2
+  - GDPR
+  - Python
+  - TypeScript
   - Open Source
   - LSP
 url: https://raw.githubusercontent.com/api-evangelist/daytona/refs/heads/main/apis.yml
@@ -55,6 +70,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Admin
+  tags_raw:
   - admin
   properties:
   - type: OpenAPI
@@ -81,6 +98,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - APIKeys
+  tags_raw:
   - api-keys
   properties:
   - type: OpenAPI
@@ -107,6 +126,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Audit
+  tags_raw:
   - audit
   properties:
   - type: OpenAPI
@@ -133,6 +154,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Config
+  tags_raw:
   - config
   properties:
   - type: OpenAPI
@@ -211,6 +234,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Job
+  tags_raw:
   - jobs
   properties:
   - type: OpenAPI
@@ -237,6 +262,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Object Storage
+  tags_raw:
   - object-storage
   properties:
   - type: OpenAPI
@@ -263,6 +290,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Organization
+  tags_raw:
   - organizations
   properties:
   - type: OpenAPI
@@ -289,6 +318,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Preview
+  tags_raw:
   - preview
   properties:
   - type: OpenAPI
@@ -315,6 +346,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Regions
+  tags_raw:
   - regions
   properties:
   - type: OpenAPI
@@ -341,6 +374,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Runners
+  tags_raw:
   - runners
   properties:
   - type: OpenAPI
@@ -367,6 +402,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Sandbox
+  tags_raw:
   - sandbox
   properties:
   - type: OpenAPI
@@ -393,6 +430,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Snapshots
+  tags_raw:
   - snapshots
   properties:
   - type: OpenAPI
@@ -419,6 +458,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Toolbox
+  tags_raw:
   - toolbox
   properties:
   - type: OpenAPI
@@ -445,6 +486,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - User
+  tags_raw:
   - users
   properties:
   - type: OpenAPI
@@ -471,6 +514,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Volumes
+  tags_raw:
   - volumes
   properties:
   - type: OpenAPI
@@ -497,6 +542,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Webhook
+  tags_raw:
   - webhooks
   properties:
   - type: OpenAPI
@@ -523,6 +570,8 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
+  - Workspace
+  tags_raw:
   - workspace
   properties:
   - type: OpenAPI
