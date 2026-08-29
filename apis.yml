@@ -616,6 +616,9 @@ apis:
   - type: OpenAPI
     url: openapi/daytona-daytona-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/daytona-capability-edges.yml
+    name: Daytona Business Capability Map
   - type: IssueTracker
     url: https://github.com/daytonaio/daytona/issues
   - type: Releases
