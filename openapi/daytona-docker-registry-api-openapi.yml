@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Daytona admin docker-registry API
+  title: Daytona Docker Registry API
   description: Daytona AI platform API Docs
   version: '1.0'
   contact:
@@ -238,51 +238,6 @@ components:
       - registryId
       - project
       - expiresAt
-    UpdateDockerRegistry:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Registry name
-        url:
-          type: string
-          description: Registry URL
-        username:
-          type: string
-          description: Registry username
-        password:
-          type: string
-          description: Registry password
-        project:
-          type: string
-          description: Registry project
-      required:
-      - name
-      - url
-      - username
-    CreateDockerRegistry:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Registry name
-        url:
-          type: string
-          description: Registry URL
-        username:
-          type: string
-          description: Registry username
-        password:
-          type: string
-          description: Registry password
-        project:
-          type: string
-          description: Registry project
-      required:
-      - name
-      - url
-      - username
-      - password
     DockerRegistry:
       type: object
       properties:
@@ -334,6 +289,51 @@ components:
       - registryType
       - createdAt
       - updatedAt
+    UpdateDockerRegistry:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Registry name
+        url:
+          type: string
+          description: Registry URL
+        username:
+          type: string
+          description: Registry username
+        password:
+          type: string
+          description: Registry password
+        project:
+          type: string
+          description: Registry project
+      required:
+      - name
+      - url
+      - username
+    CreateDockerRegistry:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Registry name
+        url:
+          type: string
+          description: Registry URL
+        username:
+          type: string
+          description: Registry username
+        password:
+          type: string
+          description: Registry password
+        project:
+          type: string
+          description: Registry project
+      required:
+      - name
+      - url
+      - username
+      - password
   securitySchemes:
     bearer:
       scheme: bearer

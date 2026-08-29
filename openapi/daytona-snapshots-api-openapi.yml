@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Daytona admin snapshots API
+  title: Daytona Snapshots API
   description: Daytona AI platform API Docs
   version: '1.0'
   contact:
@@ -315,6 +315,48 @@ paths:
       - snapshots
 components:
   schemas:
+    CreateSnapshot:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the snapshot
+          example: ubuntu-4vcpu-8ram-100gb
+        imageName:
+          type: string
+          description: The image name of the snapshot
+          example: ubuntu:22.04
+        entrypoint:
+          description: The entrypoint command for the snapshot
+          example: sleep infinity
+          type: array
+          items:
+            type: string
+        cpu:
+          type: integer
+          description: CPU cores allocated to the resulting sandbox
+          example: 1
+        gpu:
+          type: integer
+          description: GPU units allocated to the resulting sandbox
+          example: 0
+        memory:
+          type: integer
+          description: Memory allocated to the resulting sandbox in GB
+          example: 1
+        disk:
+          type: integer
+          description: Disk space allocated to the sandbox in GB
+          example: 3
+        buildInfo:
+          description: Build information for the snapshot
+          allOf:
+          - $ref: '#/components/schemas/CreateBuildInfo'
+        regionId:
+          type: string
+          description: ID of the region where the snapshot will be available. Defaults to organization default region if not specified.
+      required:
+      - name
     SnapshotDto:
       type: object
       properties:
@@ -392,6 +434,24 @@ components:
       - createdAt
       - updatedAt
       - lastUsedAt
+    PaginatedSnapshots:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapshotDto'
+        total:
+          type: number
+        page:
+          type: number
+        totalPages:
+          type: number
+      required:
+      - items
+      - total
+      - page
+      - totalPages
     BuildInfo:
       type: object
       properties:
@@ -431,24 +491,6 @@ components:
       - createdAt
       - updatedAt
       - snapshotRef
-    PaginatedSnapshots:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/SnapshotDto'
-        total:
-          type: number
-        page:
-          type: number
-        totalPages:
-          type: number
-      required:
-      - items
-      - total
-      - page
-      - totalPages
     Url:
       type: object
       properties:
@@ -468,48 +510,6 @@ components:
       - error
       - build_failed
       - removing
-    CreateSnapshot:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the snapshot
-          example: ubuntu-4vcpu-8ram-100gb
-        imageName:
-          type: string
-          description: The image name of the snapshot
-          example: ubuntu:22.04
-        entrypoint:
-          description: The entrypoint command for the snapshot
-          example: sleep infinity
-          type: array
-          items:
-            type: string
-        cpu:
-          type: integer
-          description: CPU cores allocated to the resulting sandbox
-          example: 1
-        gpu:
-          type: integer
-          description: GPU units allocated to the resulting sandbox
-          example: 0
-        memory:
-          type: integer
-          description: Memory allocated to the resulting sandbox in GB
-          example: 1
-        disk:
-          type: integer
-          description: Disk space allocated to the sandbox in GB
-          example: 3
-        buildInfo:
-          description: Build information for the snapshot
-          allOf:
-          - $ref: '#/components/schemas/CreateBuildInfo'
-        regionId:
-          type: string
-          description: ID of the region where the snapshot will be available. Defaults to organization default region if not specified.
-      required:
-      - name
     CreateBuildInfo:
       type: object
       properties:

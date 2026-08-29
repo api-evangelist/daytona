@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Daytona admin volumes API
+  title: Daytona Volumes API
   description: Daytona AI platform API Docs
   version: '1.0'
   contact:
@@ -175,13 +175,6 @@ paths:
       - volumes
 components:
   schemas:
-    CreateVolume:
-      type: object
-      properties:
-        name:
-          type: string
-      required:
-      - name
     VolumeState:
       type: string
       enum:
@@ -193,6 +186,13 @@ components:
       - deleted
       - error
       description: Volume state
+    CreateVolume:
+      type: object
+      properties:
+        name:
+          type: string
+      required:
+      - name
     VolumeDto:
       type: object
       properties:

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Daytona admin jobs API
+  title: Daytona Jobs API
   description: Daytona AI platform API Docs
   version: '1.0'
   contact:
@@ -158,6 +158,16 @@ paths:
       - jobs
 components:
   schemas:
+    PollJobsResponse:
+      type: object
+      properties:
+        jobs:
+          description: List of jobs
+          type: array
+          items:
+            $ref: '#/components/schemas/Job'
+      required:
+      - jobs
     Job:
       type: object
       properties:
@@ -215,16 +225,6 @@ components:
       - resourceType
       - resourceId
       - createdAt
-    PollJobsResponse:
-      type: object
-      properties:
-        jobs:
-          description: List of jobs
-          type: array
-          items:
-            $ref: '#/components/schemas/Job'
-      required:
-      - jobs
     PaginatedJobs:
       type: object
       properties:
@@ -243,30 +243,6 @@ components:
       - total
       - page
       - totalPages
-    JobStatus:
-      type: string
-      enum:
-      - PENDING
-      - IN_PROGRESS
-      - COMPLETED
-      - FAILED
-    UpdateJobStatus:
-      type: object
-      properties:
-        status:
-          description: The new status of the job
-          example: IN_PROGRESS
-          allOf:
-          - $ref: '#/components/schemas/JobStatus'
-        errorMessage:
-          type: string
-          description: Error message if the job failed
-          example: Failed to create sandbox
-        resultMetadata:
-          type: string
-          description: Result metadata for the job
-      required:
-      - status
     JobType:
       type: string
       enum:
@@ -285,6 +261,30 @@ components:
       - SNAPSHOT_SANDBOX
       - FORK_SANDBOX
       description: The type of the job
+    UpdateJobStatus:
+      type: object
+      properties:
+        status:
+          description: The new status of the job
+          example: IN_PROGRESS
+          allOf:
+          - $ref: '#/components/schemas/JobStatus'
+        errorMessage:
+          type: string
+          description: Error message if the job failed
+          example: Failed to create sandbox
+        resultMetadata:
+          type: string
+          description: Result metadata for the job
+      required:
+      - status
+    JobStatus:
+      type: string
+      enum:
+      - PENDING
+      - IN_PROGRESS
+      - COMPLETED
+      - FAILED
   securitySchemes:
     bearer:
       scheme: bearer

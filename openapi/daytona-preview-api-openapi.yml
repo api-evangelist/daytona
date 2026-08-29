@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Daytona admin preview API
+  title: Daytona Preview API
   description: Daytona AI platform API Docs
   version: '1.0'
   contact:

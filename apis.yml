@@ -605,6 +605,16 @@ apis:
     url: https://github.com/daytonaio/daytona
   - type: Pricing
     url: https://www.daytona.io/pricing
+- aid: daytona:daytona-daytona-api
+  name: Daytona Daytona API
+  description: The Daytona API from Daytona — 0 operation(s) for daytona.
+  humanURL: https://www.daytona.io/docs
+  baseURL: https://app.daytona.io/api
+  tags:
+  - Daytona
+  properties:
+  - type: OpenAPI
+    url: openapi/daytona-daytona-api-openapi.yml
 common:
   - type: IssueTracker
     url: https://github.com/daytonaio/daytona/issues
