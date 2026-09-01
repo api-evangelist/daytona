@@ -275,7 +275,7 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
-  - object-storage
+  - Object Storage
   tags_raw:
   - object-storage
   properties:
@@ -331,7 +331,7 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
-  - preview
+  - Preview
   tags_raw:
   - preview
   properties:
@@ -387,7 +387,7 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
-  - runners
+  - Runners
   tags_raw:
   - runners
   properties:
@@ -415,7 +415,7 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
-  - sandbox
+  - Sandbox
   tags_raw:
   - sandbox
   properties:
@@ -471,7 +471,7 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
-  - toolbox
+  - Toolbox
   tags_raw:
   - toolbox
   properties:
@@ -527,7 +527,7 @@ apis:
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
   tags:
-  - volumes
+  - Volumes
   tags_raw:
   - volumes
   properties:
