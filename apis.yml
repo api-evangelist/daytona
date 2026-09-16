@@ -1,17 +1,13 @@
 aid: daytona
 name: Daytona
-description: >-
-  Daytona provides secure, elastic sandbox infrastructure for running
-  AI-generated code, with sub-90ms sandbox creation, multi-language runtimes,
-  and full filesystem, process, Git, and Language Server Protocol APIs.
-  Sandboxes are stateful, snapshot-able, and deployable across US, EU, and
-  Asia regions, and the platform supports HIPAA, SOC 2, and GDPR. Target
-  customers are AI agent companies, coding-agent builders, data teams, RL
-  labs, and enterprises that need to execute untrusted or LLM-authored code
-  in isolation. Daytona ships Python and TypeScript SDKs (with Ruby, Go, and
-  Java available) backed by a documented REST API and OpenAPI specs. Pricing
-  is pay-as-you-go and per-second across vCPU, memory, GPU, and storage with a
-  $200 free credit.
+description: Daytona provides secure, elastic sandbox infrastructure for running AI-generated code, with
+  sub-90ms sandbox creation, multi-language runtimes, and full filesystem, process, Git, and Language
+  Server Protocol APIs. Sandboxes are stateful, snapshot-able, and deployable across US, EU, and Asia
+  regions, and the platform supports HIPAA, SOC 2, and GDPR. Target customers are AI agent companies,
+  coding-agent builders, data teams, RL labs, and enterprises that need to execute untrusted or LLM-authored
+  code in isolation. Daytona ships Python and TypeScript SDKs (with Ruby, Go, and Java available) backed
+  by a documented REST API and OpenAPI specs. Pricing is pay-as-you-go and per-second across vCPU, memory,
+  GPU, and storage with a $200 free credit.
 type: Index
 deliveryModel:
   model: unknown
@@ -44,38 +40,38 @@ position: Producing
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/daytona.png
 tags:
-  - Sandboxes
-  - Secure Execution
-  - AI Agents
-  - Coding Agents
-  - Code Interpreter
-  - Snapshots
-  - Multi-Region
-  - HIPAA
-  - SOC 2
-  - GDPR
-  - Python
-  - TypeScript
-  - Open-Source
-  - LSP
+- Sandboxes
+- Secure Execution
+- AI Agents
+- Coding Agents
+- Code Interpreter
+- Snapshots
+- Multi-Region
+- HIPAA
+- SOC 2
+- GDPR
+- Python
+- TypeScript
+- Open-Source
+- LSP
 tags_raw:
-  - Sandboxes
-  - Secure Execution
-  - AI Agents
-  - Coding Agents
-  - Code Interpreter
-  - Snapshots
-  - Multi-Region
-  - HIPAA
-  - SOC 2
-  - GDPR
-  - Python
-  - TypeScript
-  - Open Source
-  - LSP
+- Sandboxes
+- Secure Execution
+- AI Agents
+- Coding Agents
+- Code Interpreter
+- Snapshots
+- Multi-Region
+- HIPAA
+- SOC 2
+- GDPR
+- Python
+- TypeScript
+- Open Source
+- LSP
 url: https://raw.githubusercontent.com/api-evangelist/daytona/refs/heads/main/apis.yml
 created: '2026-05-23'
-modified: '2026-05-23'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: daytona:daytona-admin-api
@@ -607,7 +603,7 @@ apis:
   - type: Pricing
     url: https://www.daytona.io/pricing
 - aid: daytona:daytona-daytona-api
-  name: Daytona Daytona API
+  name: Daytona API
   description: The Daytona API from Daytona — 0 operation(s) for daytona.
   humanURL: https://www.daytona.io/docs
   baseURL: https://app.daytona.io/api
@@ -617,41 +613,41 @@ apis:
   - type: OpenAPI
     url: openapi/daytona-daytona-api-openapi.yml
 common:
-  - type: CapabilityMap
-    url: capabilities/daytona-capability-edges.yml
-    name: Daytona Business Capability Map
-  - type: IssueTracker
-    url: https://github.com/daytonaio/daytona/issues
-  - type: Releases
-    url: https://github.com/daytonaio/daytona/releases
-  - type: AgenticAccess
-    url: agentic-access/daytona-agentic-access.yml
-  - type: TrustCenter
-    url: security/daytona-trust-center.yml
-  - type: DomainSecurity
-    url: security/daytona-domain-security.yml
-  - type: Authentication
-    url: authentication/daytona-authentication.yml
-  - type: Website
-    url: https://www.daytona.io
-  - type: Documentation
-    url: https://www.daytona.io/docs
-  - type: Blog
-    url: https://www.daytona.io/dotfiles
-  - type: GitHubOrganization
-    url: https://github.com/daytonaio
-  - type: GitHubRepository
-    url: https://github.com/daytonaio/daytona
-  - type: Pricing
-    url: https://www.daytona.io/pricing
-  - type: Customers
-    url: https://www.daytona.io/customers
-  - type: Signup
-    url: https://app.daytona.io/
-  - type: TermsOfService
-    url: https://www.daytona.io/terms
-  - type: PrivacyPolicy
-    url: https://www.daytona.io/privacy
+- type: CapabilityMap
+  url: capabilities/daytona-capability-edges.yml
+  name: Daytona Business Capability Map
+- type: IssueTracker
+  url: https://github.com/daytonaio/daytona/issues
+- type: Releases
+  url: https://github.com/daytonaio/daytona/releases
+- type: AgenticAccess
+  url: agentic-access/daytona-agentic-access.yml
+- type: TrustCenter
+  url: security/daytona-trust-center.yml
+- type: DomainSecurity
+  url: security/daytona-domain-security.yml
+- type: Authentication
+  url: authentication/daytona-authentication.yml
+- type: Website
+  url: https://www.daytona.io
+- type: Documentation
+  url: https://www.daytona.io/docs
+- type: Blog
+  url: https://www.daytona.io/dotfiles
+- type: GitHubOrganization
+  url: https://github.com/daytonaio
+- type: GitHubRepository
+  url: https://github.com/daytonaio/daytona
+- type: Pricing
+  url: https://www.daytona.io/pricing
+- type: Customers
+  url: https://www.daytona.io/customers
+- type: Signup
+  url: https://app.daytona.io/
+- type: TermsOfService
+  url: https://www.daytona.io/terms
+- type: PrivacyPolicy
+  url: https://www.daytona.io/privacy
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
