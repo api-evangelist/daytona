@@ -13,7 +13,7 @@ info:
 servers:
 - url: http://localhost:3000
 tags:
-- name: config
+- name: Config
 paths:
   /config:
     get:
@@ -28,7 +28,7 @@ paths:
                 $ref: '#/components/schemas/DaytonaConfiguration'
       summary: Get config
       tags:
-      - config
+      - Config
 components:
   schemas:
     Announcement:
@@ -74,6 +74,20 @@ components:
           type: number
           description: Rate limit max requests
           example: 100
+    PosthogConfig:
+      type: object
+      properties:
+        apiKey:
+          type: string
+          description: PostHog API key
+          example: phc_abc123
+        host:
+          type: string
+          description: PostHog host URL
+          example: https://app.posthog.com
+      required:
+      - apiKey
+      - host
     DaytonaConfiguration:
       type: object
       properties:
@@ -185,20 +199,6 @@ components:
           description: Sandbox lifecycle rate limit
           allOf:
           - $ref: '#/components/schemas/RateLimitEntry'
-    PosthogConfig:
-      type: object
-      properties:
-        apiKey:
-          type: string
-          description: PostHog API key
-          example: phc_abc123
-        host:
-          type: string
-          description: PostHog host URL
-          example: https://app.posthog.com
-      required:
-      - apiKey
-      - host
   securitySchemes:
     bearer:
       scheme: bearer

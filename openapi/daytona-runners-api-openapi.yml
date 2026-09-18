@@ -13,7 +13,7 @@ info:
 servers:
 - url: http://localhost:3000
 tags:
-- name: runners
+- name: Runners
 paths:
   /runners:
     post:
@@ -46,7 +46,7 @@ paths:
         - email
       summary: Create runner
       tags:
-      - runners
+      - Runners
     get:
       operationId: listRunners
       parameters:
@@ -79,7 +79,7 @@ paths:
         - email
       summary: List all runners
       tags:
-      - runners
+      - Runners
   /runners/me:
     get:
       operationId: getInfoForAuthenticatedRunner
@@ -99,7 +99,7 @@ paths:
         - email
       summary: Get info for authenticated runner
       tags:
-      - runners
+      - Runners
   /runners/by-sandbox/{sandboxId}:
     get:
       operationId: getRunnerBySandboxId
@@ -124,7 +124,7 @@ paths:
         - email
       summary: Get runner by sandbox ID
       tags:
-      - runners
+      - Runners
   /runners/by-snapshot-ref:
     get:
       operationId: getRunnersBySnapshotRef
@@ -152,7 +152,7 @@ paths:
         - email
       summary: Get runners by snapshot ref
       tags:
-      - runners
+      - Runners
   /runners/{id}:
     get:
       operationId: getRunnerById
@@ -184,7 +184,7 @@ paths:
         - email
       summary: Get runner by ID
       tags:
-      - runners
+      - Runners
     delete:
       operationId: deleteRunner
       parameters:
@@ -211,7 +211,7 @@ paths:
         - email
       summary: Delete runner
       tags:
-      - runners
+      - Runners
   /runners/{id}/full:
     get:
       operationId: getRunnerFullById
@@ -237,7 +237,7 @@ paths:
         - email
       summary: Get runner by ID
       tags:
-      - runners
+      - Runners
   /runners/{id}/scheduling:
     patch:
       operationId: updateRunnerScheduling
@@ -269,7 +269,7 @@ paths:
         - email
       summary: Update runner scheduling status
       tags:
-      - runners
+      - Runners
   /runners/{id}/draining:
     patch:
       operationId: updateRunnerDraining
@@ -301,7 +301,7 @@ paths:
         - email
       summary: Update runner draining status
       tags:
-      - runners
+      - Runners
   /runners/healthcheck:
     post:
       description: Endpoint for version 2 runners to send healthcheck and metrics. Updates lastChecked timestamp and runner metrics.
@@ -324,9 +324,75 @@ paths:
         - email
       summary: Runner healthcheck
       tags:
-      - runners
+      - Runners
 components:
   schemas:
+    CreateRunnerResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the runner
+          example: runner123
+        apiKey:
+          type: string
+          description: The API key for the runner
+          example: dtn_1234567890
+      required:
+      - id
+      - apiKey
+    RegionType:
+      type: string
+      enum:
+      - shared
+      - dedicated
+      - custom
+      description: The type of the region
+    RunnerClass:
+      type: string
+      enum:
+      - container
+      - vm
+      description: The class of the runner
+    RunnerHealthcheck:
+      type: object
+      properties:
+        metrics:
+          description: Runner metrics
+          allOf:
+          - $ref: '#/components/schemas/RunnerHealthMetrics'
+        serviceHealth:
+          description: Health status of individual services on the runner
+          type: array
+          items:
+            $ref: '#/components/schemas/RunnerServiceHealth'
+        domain:
+          type: string
+          description: Runner domain
+          example: runner-123.daytona.example.com
+        proxyUrl:
+          type: string
+          description: Runner proxy URL
+          example: http://proxy.daytona.example.com:8080
+        apiUrl:
+          type: string
+          description: Runner API URL
+          example: http://api.daytona.example.com:8080
+        appVersion:
+          type: string
+          description: Runner app version
+          example: v0.0.0-dev
+      required:
+      - appVersion
+    RunnerState:
+      type: string
+      enum:
+      - initializing
+      - ready
+      - disabled
+      - decommissioned
+      - unresponsive
+      description: The state of the runner
     Runner:
       type: object
       properties:
@@ -479,99 +545,6 @@ components:
       - version
       - apiVersion
       - runnerClass
-    RegionType:
-      type: string
-      enum:
-      - shared
-      - dedicated
-      - custom
-      description: The type of the region
-    SandboxClass:
-      type: string
-      enum:
-      - small
-      - medium
-      - large
-      description: The class of the runner
-    RunnerClass:
-      type: string
-      enum:
-      - container
-      - vm
-      description: The class of the runner
-    RunnerHealthMetrics:
-      type: object
-      properties:
-        currentCpuLoadAverage:
-          type: number
-          description: Current CPU load average
-          example: 0.98
-        currentCpuUsagePercentage:
-          type: number
-          description: Current CPU usage percentage
-          example: 45.5
-        currentMemoryUsagePercentage:
-          type: number
-          description: Current memory usage percentage
-          example: 60.2
-        currentDiskUsagePercentage:
-          type: number
-          description: Current disk usage percentage
-          example: 35.8
-        currentAllocatedCpu:
-          type: number
-          description: Currently allocated CPU cores
-          example: 8
-        currentAllocatedMemoryGiB:
-          type: number
-          description: Currently allocated memory in GiB
-          example: 16
-        currentAllocatedDiskGiB:
-          type: number
-          description: Currently allocated disk in GiB
-          example: 100
-        currentSnapshotCount:
-          type: number
-          description: Number of snapshots currently stored
-          example: 5
-        currentStartedSandboxes:
-          type: number
-          description: Number of started sandboxes
-          example: 10
-        cpu:
-          type: number
-          description: Total CPU cores on the runner
-          example: 8
-        memoryGiB:
-          type: number
-          description: Total RAM in GiB on the runner
-          example: 16
-        diskGiB:
-          type: number
-          description: Total disk space in GiB on the runner
-          example: 100
-      required:
-      - currentCpuLoadAverage
-      - currentCpuUsagePercentage
-      - currentMemoryUsagePercentage
-      - currentDiskUsagePercentage
-      - currentAllocatedCpu
-      - currentAllocatedMemoryGiB
-      - currentAllocatedDiskGiB
-      - currentSnapshotCount
-      - currentStartedSandboxes
-      - cpu
-      - memoryGiB
-      - diskGiB
-    RunnerState:
-      type: string
-      enum:
-      - initializing
-      - ready
-      - disabled
-      - decommissioned
-      - unresponsive
-      description: The state of the runner
     RunnerFull:
       type: object
       properties:
@@ -752,6 +725,70 @@ components:
       required:
       - runnerSnapshotId
       - runnerId
+    RunnerHealthMetrics:
+      type: object
+      properties:
+        currentCpuLoadAverage:
+          type: number
+          description: Current CPU load average
+          example: 0.98
+        currentCpuUsagePercentage:
+          type: number
+          description: Current CPU usage percentage
+          example: 45.5
+        currentMemoryUsagePercentage:
+          type: number
+          description: Current memory usage percentage
+          example: 60.2
+        currentDiskUsagePercentage:
+          type: number
+          description: Current disk usage percentage
+          example: 35.8
+        currentAllocatedCpu:
+          type: number
+          description: Currently allocated CPU cores
+          example: 8
+        currentAllocatedMemoryGiB:
+          type: number
+          description: Currently allocated memory in GiB
+          example: 16
+        currentAllocatedDiskGiB:
+          type: number
+          description: Currently allocated disk in GiB
+          example: 100
+        currentSnapshotCount:
+          type: number
+          description: Number of snapshots currently stored
+          example: 5
+        currentStartedSandboxes:
+          type: number
+          description: Number of started sandboxes
+          example: 10
+        cpu:
+          type: number
+          description: Total CPU cores on the runner
+          example: 8
+        memoryGiB:
+          type: number
+          description: Total RAM in GiB on the runner
+          example: 16
+        diskGiB:
+          type: number
+          description: Total disk space in GiB on the runner
+          example: 100
+      required:
+      - currentCpuLoadAverage
+      - currentCpuUsagePercentage
+      - currentMemoryUsagePercentage
+      - currentDiskUsagePercentage
+      - currentAllocatedCpu
+      - currentAllocatedMemoryGiB
+      - currentAllocatedDiskGiB
+      - currentSnapshotCount
+      - currentStartedSandboxes
+      - cpu
+      - memoryGiB
+      - diskGiB
     CreateRunner:
       type: object
       properties:
@@ -770,36 +807,13 @@ components:
       required:
       - regionId
       - name
-    RunnerHealthcheck:
-      type: object
-      properties:
-        metrics:
-          description: Runner metrics
-          allOf:
-          - $ref: '#/components/schemas/RunnerHealthMetrics'
-        serviceHealth:
-          description: Health status of individual services on the runner
-          type: array
-          items:
-            $ref: '#/components/schemas/RunnerServiceHealth'
-        domain:
-          type: string
-          description: Runner domain
-          example: runner-123.daytona.example.com
-        proxyUrl:
-          type: string
-          description: Runner proxy URL
-          example: http://proxy.daytona.example.com:8080
-        apiUrl:
-          type: string
-          description: Runner API URL
-          example: http://api.daytona.example.com:8080
-        appVersion:
-          type: string
-          description: Runner app version
-          example: v0.0.0-dev
-      required:
-      - appVersion
+    SandboxClass:
+      type: string
+      enum:
+      - small
+      - medium
+      - large
+      description: The class of the runner
     RunnerServiceHealth:
       type: object
       properties:
@@ -818,20 +832,6 @@ components:
       required:
       - serviceName
       - healthy
-    CreateRunnerResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the runner
-          example: runner123
-        apiKey:
-          type: string
-          description: The API key for the runner
-          example: dtn_1234567890
-      required:
-      - id
-      - apiKey
   securitySchemes:
     bearer:
       scheme: bearer

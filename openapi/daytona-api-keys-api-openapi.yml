@@ -13,7 +13,7 @@ info:
 servers:
 - url: http://localhost:3000
 tags:
-- name: api-keys
+- name: API Keys
 paths:
   /api-keys:
     post:
@@ -46,7 +46,7 @@ paths:
         - email
       summary: Create API key
       tags:
-      - api-keys
+      - API Keys
     get:
       operationId: listApiKeys
       parameters:
@@ -75,7 +75,7 @@ paths:
         - email
       summary: List API keys
       tags:
-      - api-keys
+      - API Keys
   /api-keys/current:
     get:
       operationId: getCurrentApiKey
@@ -101,7 +101,7 @@ paths:
         - email
       summary: Get current API key's details
       tags:
-      - api-keys
+      - API Keys
   /api-keys/{name}:
     get:
       operationId: getApiKey
@@ -132,7 +132,7 @@ paths:
         - email
       summary: Get API key
       tags:
-      - api-keys
+      - API Keys
     delete:
       operationId: deleteApiKey
       parameters:
@@ -158,7 +158,7 @@ paths:
         - email
       summary: Delete API key
       tags:
-      - api-keys
+      - API Keys
   /api-keys/{userId}/{name}:
     delete:
       operationId: deleteApiKeyForUser
@@ -190,7 +190,7 @@ paths:
         - email
       summary: Delete API key for user
       tags:
-      - api-keys
+      - API Keys
 components:
   schemas:
     ApiKeyResponse:
@@ -242,6 +242,43 @@ components:
       - createdAt
       - permissions
       - expiresAt
+    CreateApiKey:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the API key
+          example: My API Key
+        permissions:
+          type: array
+          description: The list of organization resource permissions explicitly assigned to the API key
+          items:
+            type: string
+            enum:
+            - write:registries
+            - delete:registries
+            - write:snapshots
+            - delete:snapshots
+            - write:sandboxes
+            - delete:sandboxes
+            - read:volumes
+            - write:volumes
+            - delete:volumes
+            - write:regions
+            - delete:regions
+            - read:runners
+            - write:runners
+            - delete:runners
+            - read:audit_logs
+        expiresAt:
+          format: date-time
+          type: string
+          description: When the API key expires
+          example: '2025-06-09T12:00:00.000Z'
+          nullable: true
+      required:
+      - name
+      - permissions
     ApiKeyList:
       type: object
       properties:
@@ -303,43 +340,6 @@ components:
       - lastUsedAt
       - expiresAt
       - userId
-    CreateApiKey:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the API key
-          example: My API Key
-        permissions:
-          type: array
-          description: The list of organization resource permissions explicitly assigned to the API key
-          items:
-            type: string
-            enum:
-            - write:registries
-            - delete:registries
-            - write:snapshots
-            - delete:snapshots
-            - write:sandboxes
-            - delete:sandboxes
-            - read:volumes
-            - write:volumes
-            - delete:volumes
-            - write:regions
-            - delete:regions
-            - read:runners
-            - write:runners
-            - delete:runners
-            - read:audit_logs
-        expiresAt:
-          format: date-time
-          type: string
-          description: When the API key expires
-          example: '2025-06-09T12:00:00.000Z'
-          nullable: true
-      required:
-      - name
-      - permissions
   securitySchemes:
     bearer:
       scheme: bearer

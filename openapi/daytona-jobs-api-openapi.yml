@@ -13,7 +13,7 @@ info:
 servers:
 - url: http://localhost:3000
 tags:
-- name: jobs
+- name: Jobs
 paths:
   /jobs:
     get:
@@ -64,7 +64,7 @@ paths:
         - email
       summary: List jobs for the runner
       tags:
-      - jobs
+      - Jobs
   /jobs/poll:
     get:
       description: Long poll endpoint for runners to fetch pending jobs. Returns immediately if jobs are available, otherwise waits up to timeout seconds.
@@ -97,7 +97,7 @@ paths:
         - email
       summary: Long poll for jobs
       tags:
-      - jobs
+      - Jobs
   /jobs/{jobId}:
     get:
       operationId: getJob
@@ -123,7 +123,7 @@ paths:
         - email
       summary: Get job details
       tags:
-      - jobs
+      - Jobs
   /jobs/{jobId}/status:
     post:
       operationId: updateJobStatus
@@ -155,19 +155,16 @@ paths:
         - email
       summary: Update job status
       tags:
-      - jobs
+      - Jobs
 components:
   schemas:
-    PollJobsResponse:
-      type: object
-      properties:
-        jobs:
-          description: List of jobs
-          type: array
-          items:
-            $ref: '#/components/schemas/Job'
-      required:
-      - jobs
+    JobStatus:
+      type: string
+      enum:
+      - PENDING
+      - IN_PROGRESS
+      - COMPLETED
+      - FAILED
     Job:
       type: object
       properties:
@@ -225,24 +222,33 @@ components:
       - resourceType
       - resourceId
       - createdAt
-    PaginatedJobs:
+    PollJobsResponse:
       type: object
       properties:
-        items:
+        jobs:
+          description: List of jobs
           type: array
           items:
             $ref: '#/components/schemas/Job'
-        total:
-          type: number
-        page:
-          type: number
-        totalPages:
-          type: number
       required:
-      - items
-      - total
-      - page
-      - totalPages
+      - jobs
+    UpdateJobStatus:
+      type: object
+      properties:
+        status:
+          description: The new status of the job
+          example: IN_PROGRESS
+          allOf:
+          - $ref: '#/components/schemas/JobStatus'
+        errorMessage:
+          type: string
+          description: Error message if the job failed
+          example: Failed to create sandbox
+        resultMetadata:
+          type: string
+          description: Result metadata for the job
+      required:
+      - status
     JobType:
       type: string
       enum:
@@ -261,30 +267,24 @@ components:
       - SNAPSHOT_SANDBOX
       - FORK_SANDBOX
       description: The type of the job
-    UpdateJobStatus:
+    PaginatedJobs:
       type: object
       properties:
-        status:
-          description: The new status of the job
-          example: IN_PROGRESS
-          allOf:
-          - $ref: '#/components/schemas/JobStatus'
-        errorMessage:
-          type: string
-          description: Error message if the job failed
-          example: Failed to create sandbox
-        resultMetadata:
-          type: string
-          description: Result metadata for the job
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Job'
+        total:
+          type: number
+        page:
+          type: number
+        totalPages:
+          type: number
       required:
-      - status
-    JobStatus:
-      type: string
-      enum:
-      - PENDING
-      - IN_PROGRESS
-      - COMPLETED
-      - FAILED
+      - items
+      - total
+      - page
+      - totalPages
   securitySchemes:
     bearer:
       scheme: bearer

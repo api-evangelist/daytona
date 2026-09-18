@@ -57,13 +57,15 @@
     "daytona-openapi.json: declared missing tag: users",
     "daytona-openapi.json: declared missing tag: volumes",
     "daytona-openapi.json: declared missing tag: webhooks",
-    "daytona-openapi.json: declared missing tag: workspace"
+    "daytona-openapi.json: declared missing tag: workspace",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "daytona-admin-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "daytona-api-keys-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "daytona-audit-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "daytona-config-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "daytona-daytona-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "daytona-docker-registry-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "daytona-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "daytona-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",

@@ -13,7 +13,7 @@ info:
 servers:
 - url: http://localhost:3000
 tags:
-- name: regions
+- name: Regions
 paths:
   /shared-regions:
     get:
@@ -30,16 +30,9 @@ paths:
                   $ref: '#/components/schemas/Region'
       summary: List all shared regions
       tags:
-      - regions
+      - Regions
 components:
   schemas:
-    RegionType:
-      type: string
-      enum:
-      - shared
-      - dedicated
-      - custom
-      description: The type of the region
     Region:
       type: object
       properties:
@@ -90,6 +83,13 @@ components:
       - regionType
       - createdAt
       - updatedAt
+    RegionType:
+      type: string
+      enum:
+      - shared
+      - dedicated
+      - custom
+      description: The type of the region
   securitySchemes:
     bearer:
       scheme: bearer

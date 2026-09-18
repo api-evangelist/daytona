@@ -24,6 +24,8 @@ paths:
           description: ''
       tags:
       - Health
+      summary: Health controller live
+      x-summary-source: derived
   /health/ready:
     get:
       operationId: HealthController_check
@@ -137,6 +139,8 @@ paths:
       - bearer: []
       tags:
       - Health
+      summary: Health controller check
+      x-summary-source: derived
 components:
   securitySchemes:
     bearer:

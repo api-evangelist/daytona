@@ -13,7 +13,7 @@ info:
 servers:
 - url: http://localhost:3000
 tags:
-- name: volumes
+- name: Volumes
 paths:
   /volumes:
     get:
@@ -48,7 +48,7 @@ paths:
         - email
       summary: List all volumes
       tags:
-      - volumes
+      - Volumes
     post:
       operationId: createVolume
       parameters:
@@ -79,7 +79,7 @@ paths:
         - email
       summary: Create a new volume
       tags:
-      - volumes
+      - Volumes
   /volumes/{volumeId}:
     get:
       operationId: getVolume
@@ -111,7 +111,7 @@ paths:
         - email
       summary: Get volume details
       tags:
-      - volumes
+      - Volumes
     delete:
       operationId: deleteVolume
       parameters:
@@ -140,7 +140,7 @@ paths:
         - email
       summary: Delete volume
       tags:
-      - volumes
+      - Volumes
   /volumes/by-name/{name}:
     get:
       operationId: getVolumeByName
@@ -172,9 +172,16 @@ paths:
         - email
       summary: Get volume details by name
       tags:
-      - volumes
+      - Volumes
 components:
   schemas:
+    CreateVolume:
+      type: object
+      properties:
+        name:
+          type: string
+      required:
+      - name
     VolumeState:
       type: string
       enum:
@@ -186,13 +193,6 @@ components:
       - deleted
       - error
       description: Volume state
-    CreateVolume:
-      type: object
-      properties:
-        name:
-          type: string
-      required:
-      - name
     VolumeDto:
       type: object
       properties:
